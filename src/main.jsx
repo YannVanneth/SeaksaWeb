@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Rootlayout from "./components/layouts/Rootlayout.jsx";
+import CoursesPage from "./pages/CoursesPage.jsx";
 
 // Correctly define the router
 const router = createBrowserRouter([
@@ -11,7 +12,18 @@ const router = createBrowserRouter([
     path: "/",
     element: <Rootlayout />,
     children: [
-      // Define child routes here if needed
+      {
+        path: "/",
+        element: <App />,
+      },
+      {
+        path: "/courses",
+        element: <CoursesPage />,
+      },
+      {
+        path: "/*",
+        element: <div>404 Not Found</div>,
+      },
     ],
   },
 ]);

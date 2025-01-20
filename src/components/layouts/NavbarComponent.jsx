@@ -15,26 +15,29 @@ export default function NavbarComponent() {
               <span className="text-lg font-semibold">EduPlatform</span>
             </Link>
             <div className="hidden md:flex items-center gap-6">
+              <Link to="/" className="text-sm font-medium hover:text-primary">
+                Home
+              </Link>
               <Link
-                href="/courses"
+                to="/courses"
                 className="text-sm font-medium hover:text-primary"
               >
                 Courses
               </Link>
               <Link
-                href="/category"
+                to="/category"
                 className="text-sm font-medium hover:text-primary"
               >
                 Category
               </Link>
               <Link
-                href="/about"
+                to="/about"
                 className="text-sm font-medium hover:text-primary"
               >
                 About Us
               </Link>
               <Link
-                href="/learning"
+                to="/learning"
                 className="text-sm font-medium hover:text-primary"
               >
                 My Learning
