@@ -1,372 +1,255 @@
-import { Button } from "../components/ui/Button";
+import { Button } from "flowbite-react";
 import { CiBookmark } from "react-icons/ci";
 import { FaArrowRight } from "react-icons/fa6";
+import { useState } from "react";
 
-const styles = {
-  section:
-    "w-[75%] mx-auto flex justify-between items-center leading-tight h-screen",
-  textContainer: "text-wrap w-1/3",
-  heading: "text-[60px] font-bold leading-tight",
-  subheading: "text-[40px] font-bold leading-tight",
-  primaryText: "text-primary",
-  description: "text-[16px] my-5",
-  imageContainer: "relative",
-  label:
-    "text-primary bg-white drop-shadow-lg text-center p-6 rounded-lg absolute",
-};
+// Import images (replace with actual paths)
+import BookIcon from "../assets/book_icons.svg";
+import SupportIcon from "../assets/support_icon.svg";
+import WebDevelopmentIcon from "../assets/Web_development.svg";
+import FigmaIcon from "../assets/figma.svg";
+import LecturesIcon from "../assets/Lectures.svg";
+import DurationIcon from "../assets/Duration.svg";
+import HomepageImage from "../assets/homepage_01.png";
+import HtmlIcon from "../assets/html.svg";
 
-const responsive = {
-  lg: "",
-  md: "",
-  sm: "flex justify-center",
-};
+const CardSpp = ({ icons, title, description, actionButton }) => (
+  <div className="w-full md:w-fit p-4 bg-white rounded-lg shadow-md h-fit">
+    <img src={icons} alt={title} width={46} height={51} />
+    <div className="my-3">
+      <p className="font-bold mb-2 text-lg">{title}</p>
+      <p className="text-sm text-primary">{description}</p>
+    </div>
+    <Button color="success">{actionButton}</Button>
+  </div>
+);
 
-const popularCoursesData = [
-  {
-    Title: "Web Development",
-    description:
-      "Discover how to build web applications using HTML, CSS, and JavaScript. Learn from top-notch developers and industry experts.",
-    ImageSrc: "src/assets/figma.svg",
-    link: "/courses/web-development",
-  },
-];
+const CategoryCard = ({ ImageSrc, title, NumberOfCourses }) => (
+  <div className="rounded-md shadow-lg overflow-hidden">
+    <img src={ImageSrc} alt={title} className="w-full" />
+    <div className="px-4 py-2 text-center">
+      <p className="text-lg font-semibold">{title}</p>
+      <p className="text-sm text-gray-600">{NumberOfCourses} courses</p>
+    </div>
+  </div>
+);
 
-// section conponents
-const HomePages = () => {
+const PopularCourseCard = ({
+  title,
+  description,
+  ImageSrc,
+  CourseDuration,
+  NumberOfLectures,
+}) => {
+  // State to manage bookmark status
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  // Function to toggle bookmark status
+  const toggleBookmark = () => {
+    setIsBookmarked((prev) => !prev);
+  };
+
   return (
-    <main>
-      <HeroSection />
-      <SupportSections />
-      <CategoriesSection />
-      <PopularCourses />
-      <EducationTipSection />
-    </main>
+    <div className="bg-white rounded-lg overflow-hidden shadow-md">
+      <img src={ImageSrc} alt={title} className="w-full" />
+      <div className="p-4">
+        <div className="flex justify-between items-center">
+          <p className="text-xl font-bold">{title}</p>
+          <button onClick={toggleBookmark} aria-label="Bookmark">
+            <CiBookmark
+              size={30}
+              color={isBookmarked ? "blue" : "gray"} // Change color based on bookmark status
+            />
+          </button>
+        </div>
+        <p className="text-sm my-4">{description}</p>
+        <div className="flex xl:justify-between xl:items-center xl:flex-row lg:flex-col lg:items-start text-sm">
+          <div className="flex items-center gap-2">
+            <img src={LecturesIcon} alt="Lectures" />
+            <span>{NumberOfLectures} Lectures</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <img src={DurationIcon} alt="Duration" />
+            <span>{CourseDuration} Hours</span>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
+
+const TipCard = ({ ImageSrc, Title, description }) => (
+  <div className="w-full bg-white shadow-md rounded-lg overflow-hidden">
+    <img src={ImageSrc} alt={Title} className="w-full" />
+    <div className="p-4">
+      <p className="text-xl font-bold mb-2">{Title}</p>
+      <p className="text-sm">{description}</p>
+    </div>
+  </div>
+);
+
+const HeroSection = () => (
+  <section className="w-full max-w-[75%] mx-auto flex flex-col min-[1182px]:flex-row justify-between items-center py-16">
+    <div className="w-full">
+      <h1 className="font-bold leading-tight text-5xl md:text-6xl xl:text-7xl">
+        <span className="text-primary">Take your time</span>
+        <br />
+        and learn from
+        <br />
+        Anywhere
+      </h1>
+      <p className="text-md my-6 xl:w-2/3">
+        Welcome to Serksa, your gateway to limitless learning! Our platform
+        offers a wide range of courses designed to help you gain new skills,
+        deepen your knowledge, and achieve your goals.
+      </p>
+      <Button color="success">Learn more</Button>
+    </div>
+    <div className="relative mt-8 md:mt-0">
+      <img
+        src={HomepageImage}
+        alt="Learning illustration"
+        className="shadow-sm"
+        width={705}
+        height={518}
+      />
+      <span className="absolute top-0 right-0 bg-white p-4 rounded-lg shadow-lg text-center">
+        250 <br />
+        Active Students
+      </span>
+      <span className="absolute -bottom-8 -left-12 bg-white p-4 rounded-lg shadow-lg text-center">
+        150 <br />
+        Free Courses
+      </span>
+    </div>
+  </section>
+);
+
+const SupportSections = () => (
+  <section className="w-full max-w-[75%] mx-auto flex flex-col md:flex-row items-start py-16 justify-start">
+    <div className="w-full md:w-1/2 flex flex-col md:flex-row gap-8">
+      <CardSpp
+        icons={BookIcon}
+        title="Powerful Program"
+        description="Our programs are set up for the student in the world"
+        actionButton={<FaArrowRight />}
+      />
+      <CardSpp
+        icons={SupportIcon}
+        title="24/7 Supports"
+        description="If you have any question, you can contact our support"
+        actionButton={<FaArrowRight />}
+      />
+    </div>
+    <div className="w-full md:w-1/2 mt-8 md:mt-0 md:ml-10 xl:w-1/4">
+      <p className="text-2xl md:text-4xl font-bold mb-3">
+        Our best features
+        <br />
+        <span className="text-primary"> Special for you</span>
+      </p>
+      <p className="text-sm">
+        Look into yourself, get something in return your achievements
+      </p>
+    </div>
+  </section>
+);
+
+const CategoriesSection = () => (
+  <section className="w-full max-w-[75%] mx-auto flex flex-col items-center py-16">
+    <div className="text-center">
+      <p className="text-2xl md:text-4xl text-primary font-bold mb-3">
+        All Categories
+      </p>
+      <p className="text-sm w-full md:w-[45%] mx-auto">
+        Gain comprehensive knowledge and skills through our expertly designed
+        courses, tailored to enhance your learning experience.
+      </p>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+      {[...Array(6)].map((_, index) => (
+        <CategoryCard
+          key={index}
+          ImageSrc={WebDevelopmentIcon}
+          title="Web Development"
+          NumberOfCourses="7"
+        />
+      ))}
+    </div>
+  </section>
+);
+
+const PopularCourses = () => (
+  <section className="bg-background py-16">
+    <div className="w-full max-w-[75%] mx-auto flex flex-col items-center">
+      <div className="text-center">
+        <p className="text-2xl md:text-4xl text-white font-bold mb-3">
+          Our Popular Courses
+        </p>
+        <p className="text-sm w-full md:w-[45%] mx-auto text-white">
+          Unlock your potential with Our Best Course, where expert-led lessons
+          meet practical skills.
+        </p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        {[...Array(3)].map((_, index) => (
+          <PopularCourseCard
+            key={index}
+            title="HTML & CSS"
+            description="Learn HTML5 and CSS3 to build modern websites"
+            NumberOfLectures="30"
+            ImageSrc={FigmaIcon}
+            CourseDuration="4 hours"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const EducationTipSection = () => (
+  <section className="w-full max-w-[75%] mx-auto flex flex-col items-center py-16">
+    <div className="text-center">
+      <p className="text-2xl md:text-4xl font-bold mb-3">
+        Educational Tips & Tricks
+      </p>
+    </div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+      {[...Array(3)].map((_, index) => (
+        <TipCard
+          key={index}
+          ImageSrc={FigmaIcon}
+          Title="Review Regularly"
+          description="Revisit previous lessons to strengthen memory retention."
+        />
+      ))}
+    </div>
+    <div className="rounded-2xl text-black bg-[#0d948956] w-full p-6 mt-10">
+      <p className="font-bold  xl:text-5xl text-3xl md:text-4xl mb-10">
+        Best languages course of SERKSA
+      </p>
+      <div className="grid grid-cols-5 my-4 place-items-center">
+        {[...Array(5)].map((_, index) => (
+          <img
+            key={index}
+            src={HtmlIcon}
+            alt="HTML Icon"
+            className="rounded-sm"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+// // Main Component
+const HomePages = () => (
+  <main>
+    <HeroSection />
+    <SupportSections />
+    <CategoriesSection />
+    <PopularCourses />
+    <EducationTipSection />
+  </main>
+);
 
 export default HomePages;
-
-const HeroSection = () => {
-  return (
-    <section className={`${styles.section} justify-start`}>
-      <div className={styles.textContainer}>
-        <h1 className={styles.heading}>
-          <span className={styles.primaryText}>Take your time</span>
-          <br />
-          and learn from
-          <br />
-          Anywhere
-        </h1>
-        <p className={styles.description}>
-          Welcome to Serksa, your gateway to limitless learning! Our platform
-          offers a wide range of courses designed to help you gain new skills,
-          deepen your knowledge, and achieve your goals.
-        </p>
-        <Button
-          variant="primary"
-          className="text-white"
-          rightIcon={<FaArrowRight />}
-        >
-          Learn more
-        </Button>
-      </div>
-
-      <div className={styles.imageContainer}>
-        <img
-          src="src/assets/homepage_01.png"
-          alt="Learning illustration"
-          className="shadow-sm"
-          width={705}
-          height={518}
-        />
-
-        <span className={`${styles.label} top-0 right-0`}>
-          250 <br />
-          Active Students
-        </span>
-        <span className={`${styles.label} -bottom-8 -left-12`}>
-          150 <br />
-          Free Courses
-        </span>
-      </div>
-    </section>
-  );
-};
-const SupportSections = () => {
-  // the pages conponents
-  const CardSpp = ({ icons, title, description, actionButton }) => {
-    return (
-      <div className="w-[60%]">
-        <img src={icons} alt={icons} width={46} height={51} />
-        <div className="my-3">
-          <p className="font-bold mb-2 text-[16px]">{title}</p>
-          <p className="text-[14px] text-primary w-[60%]">{description}</p>
-        </div>
-        <Button variant="primary" className="text-white">
-          {actionButton}
-        </Button>
-      </div>
-    );
-  };
-
-  return (
-    <section
-      className={`${styles.section
-        .replace("justify-between", "justify-start")
-        .replace("items-center", "items-start")} h-[60%] mb-[8rem]`}
-    >
-      <div className="flex items-center w-auto">
-        <CardSpp
-          icons="src/assets/book_icons.svg"
-          title="Powerful Program"
-          description="Our programs are set up for the student in the world"
-          actionButton={<FaArrowRight />}
-        />
-        <CardSpp
-          icons="src/assets/support_icon.svg"
-          title="24/7 Supports"
-          description="If you have any question , you can contact our  support"
-          actionButton={<FaArrowRight />}
-        />
-      </div>
-      <div className="w-1/4">
-        <p className={`font-bold mb-3 ${styles.subheading}`}>
-          Our best features <br />
-          <span className="text-primary">Special for you</span>
-        </p>
-        <p>Look into yourself, get something in return your achievements</p>
-      </div>
-    </section>
-  );
-};
-
-const CategoriesSection = () => {
-  const CategoryCard = ({ ImageSrc, title, NumberOfCourses }) => {
-    return (
-      <div className="rounded-md shadow-lg overflow-clip">
-        <img src={ImageSrc} alt={ImageSrc} />
-        <div className="px-4 py-2 text-center leading-7">
-          <p className="text-[18px]">{title}</p>
-          <p className="text-[14px] ">{NumberOfCourses} courses</p>
-        </div>
-      </div>
-    );
-  };
-
-  return (
-    <section
-      id="categories_section"
-      className={`${styles.section.replace(
-        "h-screen",
-        "h-fit"
-      )} flex-col gap-[6rem] mb-16`}
-    >
-      <div className="text-center w-full">
-        <p className={`text-primary ${styles.subheading} mb-3`}>
-          All Categories
-        </p>
-        <p className="w-[45%] mx-auto ">
-          Gain comprehensive knowledge and skills through our expertly designed
-          courses, tailored to enhance your learning experience.
-        </p>
-      </div>
-      <div className="grid grid-cols-3 grid-rows-2 gap-y-10 gap-x-20">
-        {...Array(6)
-          .fill()
-          .map((_, index) => {
-            return (
-              <CategoryCard
-                key={index}
-                ImageSrc="src/assets/Web_development.svg"
-                title="Web development"
-                NumberOfCourses="7"
-              />
-            );
-          })}
-      </div>
-    </section>
-  );
-};
-
-const PopularCourses = () => {
-  const PopularCourseCard = ({
-    title,
-    description,
-    ImageSrc,
-    isBookmark = false,
-    CourseDuration,
-    NumberOfLectures,
-  }) => {
-    return (
-      <div className="bg-white rounded-lg overflow-clip">
-        <img src={ImageSrc} alt={ImageSrc} width="100%" />
-        <div className="p-4">
-          <div className="flex justify-between items-center">
-            <p className="text-[24px] font-bold">{title}</p>
-            <CiBookmark size={30} color={isBookmark ? "white" : "blue"} />
-          </div>
-          <p className="text-[16px] my-8">{description}</p>
-          <div className="flex justify-between items-center">
-            <div className="flex justify-between items-center gap-2">
-              <img src="src/assets/Lectures.svg" alt="Lectures.svg" />
-              <span>{NumberOfLectures} Lectures</span>
-            </div>
-            <div className="flex justify-between items-center gap-2">
-              <img src="src/assets/Duration.svg" alt="Duration.svg" />
-              <span>{CourseDuration} Hours</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-  return (
-    <section id="popularCourses" className="bg-[#0D9488] py-16">
-      <div
-        className={`${styles.section.replace(
-          "h-screen",
-          "h-fit"
-        )} flex-col gap-32`}
-      >
-        <div className="text-center w-full">
-          <p className={`text-white ${styles.subheading} mb-3`}>
-            Our popular courses
-          </p>
-          <p className="w-[45%] mx-auto text-white">
-            Unlock your potential with Our Best Course, where expert-led lessons
-            meet practical skills. Whether you're a beginner or looking to
-            enhance your knowledge, this course provides all the tools you need
-            to succeed. Learn at your own pace, anytime, anywhere, and achieve
-            your goals with confidence!
-          </p>
-        </div>
-        <div className="grid grid-rows-2 gap-10">
-          <div>
-            <div className="mb-10">
-              <p className={`${styles.subheading} text-white`}>
-                Web Development
-              </p>
-              <div className="bg-gray-400 h-3 w-[15%] my-2"></div>
-            </div>
-            <div className="grid grid-cols-3 gap-x-10">
-              {/* {popularCoursesData.map((value, index) => {
-                return (
-                  <PopularCourseCard
-                    key={index}
-                    ImageSrc={value.ImageSrc}
-                    title={value.Title}
-                    description={value.description}
-                    NumberOfLectures={value.NumberOfLectures}
-                    CourseDuration={value.CourseDuration}
-                  />
-                );
-              })} */}
-
-              {...Array(3)
-                .fill()
-                .map((_, index) => {
-                  return (
-                    <PopularCourseCard
-                      ImageSrc="src/assets/figma.svg"
-                      Title="Review regularly"
-                      description=" Revisit previous lessons to strengthen memory retention. This could be through re-reading notes, watching summary videos, or taking practice quizzes."
-                    />
-                  );
-                })}
-            </div>
-          </div>
-          <div>
-            <div className="mb-10">
-              <p className={`${styles.subheading} text-white`}>
-                Web Development
-              </p>
-              <div className="bg-gray-400 h-3 w-[25%] my-2"></div>
-            </div>
-            <div className="grid grid-cols-3 gap-x-10">
-              <PopularCourseCard
-                ImageSrc="src/assets/figma.svg"
-                title="UX/UI Design Course"
-                description="UI and UX aim to create products that are not only visually appealing but also user-friendly and efficient to interagwgebhsvdbserw"
-                NumberOfLectures={10}
-                CourseDuration="1hr 30mins"
-              />
-              <PopularCourseCard
-                ImageSrc="src/assets/figma.svg"
-                title="UX/UI Design Course"
-                description="UI and UX aim to create products that are not only visually appealing but also user-friendly and efficient to interagwgebhsvdbserw"
-                NumberOfLectures={10}
-                CourseDuration="1hr 30mins"
-              />
-              <PopularCourseCard
-                ImageSrc="src/assets/figma.svg"
-                title="UX/UI Design Course"
-                description="UI and UX aim to create products that are not only visually appealing but also user-friendly and efficient to interagwgebhsvdbserw"
-                NumberOfLectures={10}
-                CourseDuration="1hr 30mins"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const EducationTipSection = () => {
-  const TipCard = ({ ImageSrc, Title, description }) => {
-    return (
-      <div className="w-[85%] bg-white shadow-md rounded-sm overflow-clip">
-        <img src={ImageSrc} alt={ImageSrc} width="100%" />
-        <div className="p-4">
-          <p className="text-[24px] font-bold mb-2">{Title}</p>
-          <p className="text-[16px]">{description}</p>
-        </div>
-      </div>
-    );
-  };
-  return (
-    <section
-      className={`${styles.section.replace(
-        "justify-between",
-        ""
-      )} flex-col my-6 gap-36`}
-    >
-      <div>
-        <p className={`my-8 ${styles.subheading}`}>Educational Tips & Tricks</p>
-        <div className="grid grid-cols-3">
-          {...Array(3)
-            .fill()
-            .map((_, index) => {
-              return (
-                <TipCard
-                  ImageSrc="src/assets/figma.svg"
-                  Title="Review regularly"
-                  description=" Revisit previous lessons to strengthen memory retention. This could be through re-reading notes, watching summary videos, or taking practice quizzes."
-                />
-              );
-            })}
-        </div>
-      </div>
-      <div className="rounded-2xl text-black bg-[#0d948956] p-8 w-full">
-        <p className="font-bold text-[40px] mb-10">
-          Best languages course of SERKSA
-        </p>
-        <div className="grid grid-cols-5 gap-x-10 py-4">
-          {...Array(5)
-            .fill()
-            .map((_, index) => {
-              return (
-                <img
-                  src="src/assets/html.svg"
-                  alt="figma.svg"
-                  width={130}
-                  height={130}
-                  className="rounded-sm"
-                />
-              );
-            })}
-        </div>
-      </div>
-    </section>
-  );
-};
