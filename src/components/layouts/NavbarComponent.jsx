@@ -1,131 +1,55 @@
 import { GraduationCap, Search, Sun } from "lucide-react";
 import React, { useState } from "react";
+import { FloatingLabel, Navbar } from "flowbite-react";
+import { Button } from "flowbite-react";
 import { Link } from "react-router-dom";
-import { Button } from "../ui/Button";
-
 export default function NavbarComponent() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
-      <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-6">
-            <Link href="/" className="flex items-center gap-2">
-              <GraduationCap className="h-6 w-6 text-primary" />
-              <span className="text-lg font-semibold">EduPlatform</span>
-            </Link>
-            <div className="hidden md:flex items-center gap-6">
-              <Link to="/" className="text-sm font-medium hover:text-primary">
-                Home
-              </Link>
-              <Link
-                to="/courses"
-                className="text-sm font-medium hover:text-primary"
-              >
-                Courses
-              </Link>
-              <Link
-                to="/category"
-                className="text-sm font-medium hover:text-primary"
-              >
-                Category
-              </Link>
-              <Link
-                to="/about"
-                className="text-sm font-medium hover:text-primary"
-              >
-                About Us
-              </Link>
-              <Link
-                to="/learning"
-                className="text-sm font-medium hover:text-primary"
-              >
-                My Learning
-              </Link>
-            </div>
-          </div>
+      <Navbar className=" mx-16" fluid rounded>
+        <Navbar.Brand href="">
+          <img
+            src="./src/assets/logo.png"
+            className="mr-3 h-6 sm:h-9"
+            alt="Flowbite React Logo"
+          />
+          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+            SEAKSA
+          </span>
+        </Navbar.Brand>
 
-          {/* Search Bar */}
-          <div className="flex-1 mx-4 max-w-xl hidden md:block">
-            <div className="relative">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-              <input
-                type="search"
-                placeholder="Search"
-                className="w-full pl-8 bg-background"
-              />
-            </div>
-          </div>
-
-          {/* Right Section */}
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" className="hidden md:flex">
-              <Sun className="h-5 w-5" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-            <Button variant="default" asChild className="hidden md:flex">
-              <Link href="/login">Login/Register</Link>
-            </Button>
-
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </div>
+        <div className="flex md:order-2">
+          <Button className="bg-primary mr-3">Loing</Button>
+          <Button className="bg-primary">Resgister</Button>
+          <Navbar.Toggle />
         </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link
-                href="/courses"
-                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 hover:text-primary"
-              >
-                Courses
-              </Link>
-              <Link
-                href="/category"
-                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 hover:text-primary"
-              >
-                Category
-              </Link>
-              <Link
-                href="/about"
-                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 hover:text-primary"
-              >
-                About Us
-              </Link>
-              <Link
-                href="/learning"
-                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 hover:text-primary"
-              >
-                My Learning
-              </Link>
-            </div>
-            <div className="px-4 py-3">
-              <Button variant="default" className="w-full" asChild>
-                <Link href="/login">Login/Register</Link>
-              </Button>
-            </div>
-            <div className="px-4 py-3">
-              <div className="relative">
-                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-                <input
-                  type="search"
-                  placeholder="Search"
-                  className="w-full pl-8 bg-background"
-                />
-              </div>
-            </div>
-          </div>
-        )}
-      </nav>
+        <Navbar.Collapse>
+          <Link to="/">
+            <Navbar.Link className="hover:text-primary">Home</Navbar.Link>
+          </Link>
+          <Link to="/courses">
+            <Navbar.Link className="hover:text-primary" href="#">
+              Courses
+            </Navbar.Link>
+          </Link>
+          <Link to="/category">
+            <Navbar.Link className="hover:text-primary" href="#">
+              Category
+            </Navbar.Link>
+          </Link>
+          <Link to="/about">
+            <Navbar.Link className="hover:text-primary" href="#">
+              About
+            </Navbar.Link>
+          </Link>
+        </Navbar.Collapse>
+        <FloatingLabel
+          className="w-[300px]"
+          variant="outlined"
+          label="Search"
+        />
+      </Navbar>
+      <div className="border-b-2 w-full h-3"></div>
     </>
   );
 }
