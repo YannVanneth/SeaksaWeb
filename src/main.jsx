@@ -6,7 +6,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Rootlayout from "./components/layouts/Rootlayout.jsx";
 import CoursesPage from "./pages/CoursesPage.jsx";
 
-// Correctly define the router
 const router = createBrowserRouter([
   {
     path: "/",

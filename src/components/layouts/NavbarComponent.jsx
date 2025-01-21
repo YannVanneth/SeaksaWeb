@@ -1,131 +1,57 @@
-import { GraduationCap, Search, Sun } from "lucide-react";
 import React, { useState } from "react";
+import { FloatingLabel, Navbar } from "flowbite-react";
+import { Button } from "flowbite-react";
 import { Link } from "react-router-dom";
-import { Button } from "../ui/Button";
-
+import { CgLogIn } from "react-icons/cg";
+import { LuSunMoon } from "react-icons/lu";
+import { CiSearch } from "react-icons/ci";
 export default function NavbarComponent() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
-      <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-6">
-            <Link href="/" className="flex items-center gap-2">
-              <GraduationCap className="h-6 w-6 text-primary" />
-              <span className="text-lg font-semibold">EduPlatform</span>
-            </Link>
-            <div className="hidden md:flex items-center gap-6">
-              <Link to="/" className="text-sm font-medium hover:text-primary">
-                Home
-              </Link>
-              <Link
-                to="/courses"
-                className="text-sm font-medium hover:text-primary"
-              >
-                Courses
-              </Link>
-              <Link
-                to="/category"
-                className="text-sm font-medium hover:text-primary"
-              >
-                Category
-              </Link>
-              <Link
-                to="/about"
-                className="text-sm font-medium hover:text-primary"
-              >
-                About Us
-              </Link>
-              <Link
-                to="/learning"
-                className="text-sm font-medium hover:text-primary"
-              >
-                My Learning
-              </Link>
-            </div>
-          </div>
-
-          {/* Search Bar */}
-          <div className="flex-1 mx-4 max-w-xl hidden md:block">
-            <div className="relative">
-              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-              <input
-                type="search"
-                placeholder="Search"
-                className="w-full pl-8 bg-background"
-              />
-            </div>
-          </div>
-
-          {/* Right Section */}
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" className="hidden md:flex">
-              <Sun className="h-5 w-5" />
-              <span className="sr-only">Toggle theme</span>
-            </Button>
-            <Button variant="default" asChild className="hidden md:flex">
-              <Link href="/login">Login/Register</Link>
-            </Button>
-
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <span className="sr-only">Toggle menu</span>
-            </Button>
-          </div>
+      <Navbar className="mx-16 py-2" fluid rounded>
+        <Navbar.Brand href="">
+          <img
+            src="./src/assets/logo.png"
+            className="mr-3 h-6 sm:h-9"
+            alt="Flowbite React Logo"
+          />
+          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+            SEAKSA
+          </span>
+        </Navbar.Brand>
+        <div className="flex items-center md:order-2">
+          <LuSunMoon className="text-2xl text-center mr-3" />
+          <Button className="hidden md:block bg-primary text-white mr-3 hover:bg-primary-dark transition duration-200">
+            Login
+          </Button>
+          <Button className="hidden md:block border border-black bg-white text-black hover:bg-primary hover:text-white transition duration-200">
+            Sign Up
+            <CgLogIn className="inline h-5 w-5 ml-2" />
+          </Button>
+          <Navbar.Toggle />
         </div>
+        <Navbar.Collapse>
+          <Link to="/">
+            <Navbar.Link className="hover:text-primary">Home</Navbar.Link>
+          </Link>
+          <Link to="/courses">
+            <Navbar.Link className="hover:text-primary" href="#">
+              Courses
+            </Navbar.Link>
+          </Link>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link
-                href="/courses"
-                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 hover:text-primary"
-              >
-                Courses
-              </Link>
-              <Link
-                href="/category"
-                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 hover:text-primary"
-              >
-                Category
-              </Link>
-              <Link
-                href="/about"
-                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 hover:text-primary"
-              >
-                About Us
-              </Link>
-              <Link
-                href="/learning"
-                className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 hover:text-primary"
-              >
-                My Learning
-              </Link>
-            </div>
-            <div className="px-4 py-3">
-              <Button variant="default" className="w-full" asChild>
-                <Link href="/login">Login/Register</Link>
-              </Button>
-            </div>
-            <div className="px-4 py-3">
-              <div className="relative">
-                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-                <input
-                  type="search"
-                  placeholder="Search"
-                  className="w-full pl-8 bg-background"
-                />
-              </div>
-            </div>
-          </div>
-        )}
-      </nav>
+          <Link to="/about">
+            <Navbar.Link className="hover:text-primary" href="#">
+              About
+            </Navbar.Link>
+          </Link>
+        </Navbar.Collapse>
+        <div className="relative w-full md:w-1/3  border-gray-200 hidden md:block">
+          <FloatingLabel variant="outlined" label="Search Course name" />
+          <CiSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl cursor-pointer" />
+        </div>
+      </Navbar>
+      <div className="border-b-2 w-full h-3"></div>
     </>
   );
 }
