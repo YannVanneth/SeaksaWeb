@@ -12,6 +12,9 @@ import LecturesIcon from "../assets/Lectures.svg";
 import DurationIcon from "../assets/Duration.svg";
 import HomepageImage from "../assets/homepage_01.png";
 import HtmlIcon from "../assets/html.svg";
+import BoxReveal from "../components/ui/BoxReveal";
+import { InteractiveHoverButton } from "../components/ui/InteractiveHoverButton";
+import { NumberTicker } from "../components/ui/NumberTicker";
 
 const CardSpp = ({ icons, title, description, actionButton }) => (
   <div className="w-full md:w-fit p-4 bg-white rounded-lg shadow-md h-fit">
@@ -103,7 +106,7 @@ const HeroSection = () => (
         offers a wide range of courses designed to help you gain new skills,
         deepen your knowledge, and achieve your goals.
       </p>
-      <Button color="success">Learn more</Button>
+      <InteractiveHoverButton className="bg-primary text-white" />
     </div>
     <div className="relative mt-8 md:mt-0">
       <img
@@ -173,6 +176,10 @@ const CategoriesSection = () => (
         />
       ))}
     </div>
+    <NumberTicker
+      value={100}
+      className="whitespace-pre-wrap text-8xl font-medium tracking-tighter text-black dark:text-white"
+    />
   </section>
 );
 

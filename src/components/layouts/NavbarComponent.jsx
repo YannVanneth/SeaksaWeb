@@ -4,11 +4,14 @@ import { Button } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { CgLogIn } from "react-icons/cg";
 import { LuSunMoon } from "react-icons/lu";
-import { CiSearch } from "react-icons/ci";
 export default function NavbarComponent() {
   return (
     <>
-      <Navbar className="mx-16 py-2" fluid rounded>
+      <Navbar
+        className="py-2 sticky top-0 left-0 w-full z-50 border-b "
+        fluid
+        rounded
+      >
         <Navbar.Brand href="">
           <img
             src="./src/assets/logo.png"
@@ -46,10 +49,10 @@ export default function NavbarComponent() {
             </Navbar.Link>
           </Link>
         </Navbar.Collapse>
-        <div className="relative w-full md:w-1/3  border-gray-200 hidden md:block">
+        {/* <div className="relative w-full md:w-1/3  border-gray-200 hidden md:block">
           <FloatingLabel variant="outlined" label="Search Course name" />
           <CiSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl cursor-pointer" />
-        </div>
+        </div> */}
       </Navbar>
       <div className="border-b-2 w-full h-3"></div>
     </>
