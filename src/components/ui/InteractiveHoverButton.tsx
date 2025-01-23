@@ -19,13 +19,13 @@ export const InteractiveHoverButton = React.forwardRef<
       {...props}
     >
       <div className="flex items-center gap-2">
-        <div className="h-2 w-2 rounded-full bg-gray-900 transition-all duration-300 group-hover:scale-[100.8] dark:bg-gray-50"></div>
+        <div className=" rounded-full bg-gray-900 transition-all duration-300 group-hover:scale-[100.8] dark:bg-gray-50"></div>
         <span className="inline-block transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
-          Join us
+          {children}
         </span>
       </div>
-      <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 text-gray-50 opacity-0 transition-all duration-300 group-hover:-translate-x-5 group-hover:opacity-100 dark:text-gray-900">
-        <span>Les't go</span>
+      <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 text-black opacity-0 transition-all duration-300 group-hover:-translate-x-5 group-hover:opacity-100 dark:text-gray-900">
+        <span> {children}</span>
         <ArrowRight />
       </div>
     </button>

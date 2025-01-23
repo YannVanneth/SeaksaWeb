@@ -11,9 +11,8 @@ import { FaFacebook } from "react-icons/fa";
 export default function FooterComponent() {
   return (
     <>
-      <div className="border-b-2 w-full h-3"></div>
-      <Footer container>
-        <div className="w-full">
+      <Footer className="border-text rounded-none mt-4 ">
+        <div className="w-full mx-32">
           <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
             <div>
               <Footer.Brand

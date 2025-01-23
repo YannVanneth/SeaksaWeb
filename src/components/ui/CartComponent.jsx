@@ -1,60 +1,61 @@
-import { Card } from "flowbite-react";
-import { Image } from "lucide-react";
-
 import React from "react";
-import { FaUser, FaClock, FaBook } from "react-icons/fa";
-
+import { IoBook } from "react-icons/io5";
+import { IoMdTime } from "react-icons/io";
+import { Avatar } from "flowbite-react";
 export default function CartComponent() {
   return (
     <>
-      <Card
-        className="w-auto h-[400px] overflow-hidden m-0"
-        imgAlt="github"
-        imgSrc="./src/assets/Git.jpg"
-      >
-        <div className="p-0">
-          <h5 className="text-md font-semibold tracking-tight text-gray-900 dark:text-white truncate">
-            GitLab acquires UnReview for code review collaboration
-          </h5>
-          <p className="font-normal text-gray-700 dark:text-gray-400 truncate">
-            GitLab has acquired UnReview, a tool that helps developers
-            collaborate on code reviews.
+      <article className="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
+        <img
+          alt=""
+          src="./src/assets/Git.jpg"
+          className="h-56 w-full object-cover"
+        />
+        <div className="bg-white p-4 sm:p-6">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-4">
+              <Avatar
+                img="https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg"
+                alt="avatar of Jese"
+                rounded
+              />
+              <div className="text-left">
+                <div className="font-medium text-gray-900 dark:text-white">
+                  Jese Leos
+                </div>
+                <div className="text-sm text-gray-500 dark:text-gray-400">
+                  Joined in August 2014
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="#">
+            <h3 className="mt-4 text-lg font-semibold text-gray-900">
+              How to position your furniture for positivity
+            </h3>
+          </a>
+
+          <p className="mt-2 text-sm text-gray-500 line-clamp-3">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
+            dolores, possimus pariatur animi temporibus nesciunt praesentium
+            dolore sed nulla ipsum eveniet corporis quidem, mollitia itaque
+            minus soluta, voluptates neque explicabo tempora nisi culpa eius
+            atque dignissimos. Molestias explicabo corporis voluptatem?
           </p>
-        </div>
-        <div className="flex space-x-4 ">
-          <div className="shrink-0">
-            <img
-              src="https://i.pinimg.com/736x/49/a4/53/49a453f20f1bf5651bc811f13b36bf70.jpg"
-              alt="profile"
-              className="h-10 w-10 rounded-full"
-            />
-          </div>
-          <div className="min-w-0 flex-1">
-            <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-              Neil Sims
-            </p>
-            <p className="truncate text-sm text-gray-500 dark:text-gray-400">
-              email@windster.com
-            </p>
-          </div>
-        </div>
-        <div>
-          <div className="flex items-center justify-between space-x-4">
-            <div className="flex items-center space-x-2">
-              <FaUser className="text-gray-500 dark:text-gray-400" />
-              <p className="text-sm text-gray-500 dark:text-gray-400">5</p>
+
+          <div className="mt-3 flex flex-wrap items-center justify-between text-sm text-gray-500">
+            <div className="flex items-center gap-2">
+              <IoBook className="text-primary text-[18px]" />
+              <span>10 Lectures</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <FaClock className="text-gray-500 dark:text-gray-400" />
-              <p className="text-sm text-gray-500 dark:text-gray-400">5 min</p>
-            </div>
-            <div className="flex items-center space-x-2">
-              <FaBook className="text-gray-500 dark:text-gray-400" />
-              <p className="text-sm text-gray-500 dark:text-gray-400">5</p>
+            <div className="flex items-center gap-2">
+              <IoMdTime className="text-primary text-xl" />
+              <span>4 Hours</span>
             </div>
           </div>
         </div>
-      </Card>
+      </article>
     </>
   );
 }
