@@ -126,21 +126,19 @@ const HeroSection = () => (
 );
 
 const SupportSections = () => (
-  <section className="w-full max-w-[75%] mx-auto flex flex-col md:flex-row items-start py-16 justify-start">
-    <div className="w-full md:w-1/2 flex flex-col md:flex-row gap-8">
-      <CardSpp
-        icons={BookIcon}
-        title="Powerful Program"
-        description="Our programs are set up for the student in the world"
-        actionButton={<FaArrowRight />}
-      />
-      <CardSpp
-        icons={SupportIcon}
-        title="24/7 Supports"
-        description="If you have any question, you can contact our support"
-        actionButton={<FaArrowRight />}
-      />
-    </div>
+  <section className="w-full max-w-[75%] mx-auto flex flex-col md:flex-row items-start py-16 justify-between">
+    <CardSpp
+      icons={BookIcon}
+      title="Powerful Program"
+      description="Our programs are set up for the student in the world"
+      actionButton={<FaArrowRight />}
+    />
+    <CardSpp
+      icons={SupportIcon}
+      title="24/7 Supports"
+      description="If you have any question, you can contact our support"
+      actionButton={<FaArrowRight />}
+    />
     <div className="w-full md:w-1/2 mt-8 md:mt-0 md:ml-10 xl:w-1/4">
       <p className="text-2xl md:text-4xl font-bold mb-3">
         Our best features
