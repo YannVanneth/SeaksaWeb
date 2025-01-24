@@ -4,6 +4,7 @@ import { IoMdTime } from "react-icons/io";
 import { Avatar } from "flowbite-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 export default function CartComponent() {
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -11,6 +12,7 @@ export default function CartComponent() {
 
   return (
     <>
+      <Link to ="/detailpage">
       <div data-aos="fade-up">
         <article className="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
           <img
@@ -65,6 +67,7 @@ export default function CartComponent() {
           </div>
         </article>
       </div>
+      </Link>
     </>
   );
 }

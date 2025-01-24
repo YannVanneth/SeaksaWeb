@@ -20,6 +20,7 @@ const OurTeam = () => {
               origin: "center",
               perView: 1.25,
               spacing: 16,
+              
             },
             breakpoints: {
               "(min-width: 1024px)": {
