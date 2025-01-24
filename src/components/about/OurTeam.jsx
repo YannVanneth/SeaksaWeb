@@ -4,6 +4,9 @@ import { FaLinkedin } from "react-icons/fa6";
 import { FaTelegram } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const OurTeam = () => {
   useEffect(() => {
     // Import KeenSlider dynamically
@@ -55,11 +58,16 @@ const OurTeam = () => {
       }
     );
   }, []);
-
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   return (
     <section className="bg-gray-50">
       <div className="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16">
+        <div
+          data-aos="fade-up"
+          className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16"
+        >
           <div className="max-w-xl text-start ltr:sm:text-left rtl:sm:text-right">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Meet Our Teams
@@ -114,8 +122,7 @@ const OurTeam = () => {
               </button>
             </div>
           </div>
-
-          <div className="-mx-6 lg:col-span-2 lg:mx-0">
+          <div data-aos="fade-left" className="-mx-6 lg:col-span-2 lg:mx-0">
             <div id="keen-slider" className="keen-slider">
               <div className="keen-slider__slide">
                 <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">

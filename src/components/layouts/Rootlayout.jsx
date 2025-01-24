@@ -8,7 +8,7 @@ export default function Rootlayout() {
   return (
     <>
       <NavbarComponent />
-      <ScrollProgressDemo className="h-[5px] text-primary" />
+      {/* <ScrollProgressDemo className="h-[5px] text-primary" /> */}
       <main>
         <Outlet />
       </main>

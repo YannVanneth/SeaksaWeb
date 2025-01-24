@@ -11,6 +11,9 @@ import { FaPhone } from "react-icons/fa6";
 import { NumberTicker } from "../components/ui/NumberTicker";
 import OurTeam from "../components/about/OurTeam";
 import { IconCloud } from "../components/ui/IconCloud";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const slugs = [
   "typescript",
   "javascript",
@@ -44,6 +47,9 @@ const slugs = [
   "figma",
 ];
 export default function AboutUsPage() {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   const images = slugs.map(
     (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
   );
@@ -92,8 +98,13 @@ export default function AboutUsPage() {
     <>
       <section className="flex flex-wrap mx-4 my-10 lg:mx-32">
         <div className="container w-full lg:w-[50%] m-auto order-2 lg:order-1 text-center lg:text-left">
-          <h1 className="text-primary text-3xl font-bold">About Us</h1>
-          <div className="mt-4">
+          <h1
+            data-aos="fade-down-right"
+            className="text-primary text-3xl font-bold"
+          >
+            About Us
+          </h1>
+          <div data-aos="fade-right" className="mt-4">
             <p className="text-xl text-secondary font-bold">
               WHY SHOULD YOU CHOOSE US?
             </p>
@@ -107,16 +118,23 @@ export default function AboutUsPage() {
             </p>
           </div>
           <InteractiveHoverButton
+            data-aos="fade-up-right"
             children="Join Us "
             className="mt-2 bg-secondary text-white rounded-md"
           />
         </div>
-        <div className="w-full lg:w-[50%] order-1 lg:order-2 flex justify-center lg:justify-end">
+        <div
+          data-aos="fade-left"
+          className="w-full lg:w-[50%] order-1 lg:order-2 flex justify-center lg:justify-end"
+        >
           <IconCloud images={images} />
         </div>
       </section>
       <section className="bg-gray-50 mt-[120px]">
-        <div className="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div
+          data-aos="fade-up"
+          className="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16"
+        >
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
             <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8">
               <div>

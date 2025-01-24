@@ -1,11 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import { Button } from "flowbite-react";
 import { CiBookmark } from "react-icons/ci";
 import { FaArrowRight } from "react-icons/fa6";
-import { NumberTicker } from "../components/ui/NumberTicker";
-import KeenSlider from "keen-slider";
 import "keen-slider/keen-slider.min.css";
-
+import AOS from "aos";
 // Import images (replace with actual paths)
 import BookIcon from "../assets/book_icons.svg";
 import SupportIcon from "../assets/support_icon.svg";
@@ -15,8 +12,8 @@ import LecturesIcon from "../assets/Lectures.svg";
 import DurationIcon from "../assets/Duration.svg";
 import HomepageImage from "../assets/homepage_01.png";
 import HtmlIcon from "../assets/html.svg";
-import { ArrowRight } from "lucide-react";
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
+import "aos/dist/aos.css"; // Import AOS styles
 
 import {
   ChartContainer,
@@ -47,19 +44,19 @@ const Chart = () => {
   return (
     <>
       <div className="w-full max-w-[75%] mx-auto  items-center py-16">
-        <div className="text-center">
+        <div data-aos="fade-right" className="text-center">
           <p className=" text-4xl mb-4 font-bold tracking-tight text-gray-900 sm:text-5xl">
-            It's The Chart of our inrolled last 6 month
+            It's The Chart of our enrolled last 6 month
           </p>
           <p className="text-md w-full">
             Gain comprehensive knowledge and skills through our expertly
             designed courses, tailored to enhance your learning experience.
           </p>
         </div>
-        <div className="flex justify-center w-full mt-4">
+        <div data-aos="fade-up" className="flex justify-center w-full mt-4">
           <ChartContainer
             config={chartConfig}
-            className="h-[400px] border-2 p-8 rounded-md ml-3"
+            className="h-[200px] md:h-[400px] border-2 p-8 rounded-md ml-3"
           >
             <BarChart accessibilityLayer data={chartData}>
               <CartesianGrid vertical={false} />
@@ -82,7 +79,7 @@ const Chart = () => {
 };
 // Reusable Components
 const CardSpp = ({ value, icons, title, description, actionButton }) => (
-  <div className="w-full md:w-fit p-4 bg-white rounded-lg shadow-md h-fit">
+  <div className="w-full md:w-fit p-4 bg-white rounded-lg shadow-md h-fit mb-5">
     <img src={icons} alt={title} width={46} height={51} />
     <div className="my-3">
       <p className="font-bold mb-2 text-lg">{title}</p>
@@ -105,7 +102,7 @@ const CategoryCard = ({ ImageSrc, title, NumberOfCourses }) => (
       <img
         src={ImageSrc}
         alt=""
-        className="h-80 w-full rounded-tr-3xl object-cover"
+        className="w-full rounded-tr-3xl object-fill"
       />
       <div className="p-4 text-start">
         <strong className="text-xl font-medium text-gray-900">
@@ -175,36 +172,47 @@ const TipCard = ({ ImageSrc, Title, description }) => (
 const HeroSection = () => (
   <section className="w-full max-w-[75%] mx-auto flex flex-col min-[1182px]:flex-row justify-between items-center py-16">
     <div className="w-full">
-      <h1 className="font-bold leading-tight text-5xl md:text-6xl xl:text-7xl">
+      <h1
+        data-aos="fade-down-right"
+        className="font-bold leading-tight text-2xl md:text-6xl xl:text-7xl"
+      >
         <span className="text-primary">Take your time</span>
         <br />
         and learn from
         <br />
         Anywhere
       </h1>
-      <p className="text-md my-6 xl:w-2/3">
+      <p data-aos="fade-up-right" className="text-md my-6 xl:w-2/3">
         Welcome to Serksa, your gateway to limitless learning! Our platform
         offers a wide range of courses designed to help you gain new skills,
         deepen your knowledge, and achieve your goals.
       </p>
       <InteractiveHoverButton
+        data-aos="fade-up-right"
         children="Learn More"
         className="bg-primary text-white rounded-sm"
       />
     </div>
     <div className="relative mt-8 md:mt-0">
       <img
+        data-aos="fade-left"
         src={HomepageImage}
         alt="Learning illustration"
         className="shadow-sm"
         width={705}
         height={518}
       />
-      <span className="absolute top-0 right-0 bg-white p-4 rounded-lg shadow-lg text-center">
+      <span
+        data-aos="fade-left"
+        className="absolute top-0 right-0 bg-white p-4 rounded-lg shadow-lg text-center"
+      >
         250 <br />
         Active Students
       </span>
-      <span className="absolute -bottom-8 -left-12 bg-white p-4 rounded-lg shadow-lg text-center">
+      <span
+        data-aos="fade-left"
+        className="absolute -bottom-8 -left-12 bg-white p-4 rounded-lg shadow-lg text-center"
+      >
         150 <br />
         Free Courses
       </span>
@@ -213,25 +221,26 @@ const HeroSection = () => (
 );
 
 const SupportSections = () => (
-  <section className="w-full mt-12 max-w-[75%] mx-auto flex flex-col md:flex-row items-start py-16 justify-between">
-    <CardSpp
-      value={
-        <NumberTicker
-          value={100}
-          className="whitespace-pre-wrap text-8xl font-medium tracking-tighter text-black dark:text-black"
-        />
-      }
-      icons={BookIcon}
-      title="Powerful Program"
-      description="Our programs are set up for the student in the world"
-    />
-    <CardSpp
-      icons={SupportIcon}
-      title="24/7 Supports"
-      description="If you have any question, you can contact our support"
-      actionButton={<FaArrowRight />}
-    />
-    <div className="w-full md:w-1/2 mt-8 md:mt-0 md:ml-10 xl:w-1/4 ">
+  <section className="w-full mt-12  max-w-[75%] mx-auto flex flex-col  md:flex-row   items-start py-16 justify-between">
+    <div data-aos="fade-up">
+      <CardSpp
+        className="mb-3"
+        icons={BookIcon}
+        title="Powerful Program"
+        description="Our programs are set up for the student in the world"
+      />
+    </div>
+    <div data-aos="fade-up" data-aos-duration="1500">
+      <CardSpp
+        icons={SupportIcon}
+        title="24/7 Supports"
+        description="If you have any question, you can contact our support"
+      />
+    </div>
+    <div
+      data-aos="fade-up"
+      className="w-full md:w-1/2 mt-8 md:mt-0 md:ml-10 xl:w-1/4 "
+    >
       <p className="text-2xl md:text-4xl font-bold mb-3">
         Our best features
         <br />
@@ -246,7 +255,7 @@ const SupportSections = () => (
 
 const CategoriesSection = () => (
   <section className="w-full max-w-[75%] mx-auto flex flex-col items-start py-16">
-    <div className="w-full">
+    <div data-aos="fade-right" className="w-full">
       <p className="text-start text-4xl mb-4 font-bold tracking-tight text-gray-900 sm:text-5xl">
         Our Famous Courses
       </p>
@@ -255,7 +264,10 @@ const CategoriesSection = () => (
         courses, tailored to enhance your learning experience.
       </p>
     </div>
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+    <div
+      data-aos="fade-up"
+      className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12"
+    >
       {[...Array(3)].map((_, index) => (
         <CategoryCard
           key={index}
@@ -424,11 +436,14 @@ const TestimonialSlider = () => {
 
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+      <div
+        data-aos="fade-right"
+        className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16"
+      >
         <h2 className="text-start  text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
           Read trusted reviews from our students.
         </h2>
-        <div className="mt-8">
+        <div data-aos="fade-up" className="mt-8">
           <div ref={sliderRef} className="keen-slider">
             {testimonials.map((testimonial, index) => (
               <div
@@ -523,6 +538,9 @@ const TestimonialSlider = () => {
 
 // Main Component
 function HomePages() {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   return (
     <main>
       <HeroSection />
