@@ -11,6 +11,9 @@ import { FaPhone } from "react-icons/fa6";
 import { NumberTicker } from "../components/ui/NumberTicker";
 import OurTeam from "../components/about/OurTeam";
 import { IconCloud } from "../components/ui/IconCloud";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const slugs = [
   "typescript",
   "javascript",
@@ -44,6 +47,9 @@ const slugs = [
   "figma",
 ];
 export default function AboutUsPage() {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   const images = slugs.map(
     (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
   );
@@ -92,8 +98,13 @@ export default function AboutUsPage() {
     <>
       <section className="flex flex-wrap mx-4 my-10 lg:mx-32">
         <div className="container w-full lg:w-[50%] m-auto order-2 lg:order-1 text-center lg:text-left">
-          <h1 className="text-primary text-3xl font-bold">About Us</h1>
-          <div className="mt-4">
+          <h1
+            data-aos="fade-down-right"
+            className="text-primary text-3xl font-bold"
+          >
+            About Us
+          </h1>
+          <div data-aos="fade-right" className="mt-4">
             <p className="text-xl text-secondary font-bold">
               WHY SHOULD YOU CHOOSE US?
             </p>
@@ -107,16 +118,23 @@ export default function AboutUsPage() {
             </p>
           </div>
           <InteractiveHoverButton
+            data-aos="fade-up-right"
             children="Join Us "
             className="mt-2 bg-secondary text-white rounded-md"
           />
         </div>
-        <div className="w-full lg:w-[50%] order-1 lg:order-2 flex justify-center lg:justify-end">
+        <div
+          data-aos="fade-left"
+          className="w-full lg:w-[50%] order-1 lg:order-2 flex justify-center lg:justify-end"
+        >
           <IconCloud images={images} />
         </div>
       </section>
       <section className="bg-gray-50 mt-[120px]">
-        <div className="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div
+          data-aos="fade-up"
+          className="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16"
+        >
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
             <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8">
               <div>
@@ -357,24 +375,24 @@ export default function AboutUsPage() {
           </div>
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:mx-0">
-              <h2 className="text-5xl font-semibold tracking-tight text-secondary sm:text-7xl">
+              <h2 data-aos="fade-down-right" className="text-5xl font-semibold tracking-tight text-secondary sm:text-7xl">
                 Work with us
               </h2>
-              <p className="mt-8 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">
+              <p data-aos="fade-right" className="mt-8 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">
                 Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
                 lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
                 fugiat.
               </p>
             </div>
             <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-              <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+              <div data-aos="fade-right" className="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10">
                 {links.map((link) => (
                   <a key={link.name} href={link.href}>
                     {link.name} <span aria-hidden="true">&rarr;</span>
                   </a>
                 ))}
               </div>
-              <dl className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+              <dl  data-aos="fade-up" className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
                 {stats.map((stat) => (
                   <div key={stat.name} className="flex flex-col-reverse gap-1">
                     <dt className="text-base/7 text-gray-300">{stat.name}</dt>
