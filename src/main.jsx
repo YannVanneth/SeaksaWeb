@@ -8,6 +8,7 @@ import CoursesPage from "./pages/CoursesPage.jsx";
 import AboutUsPage from "./pages/AboutUsPage.jsx";
 import DetailPage from "./pages/DetailPage.jsx";
 import MyLearningPage from "./pages/MyLearning.jsx";
+import LoginPage from "./components/auths/LoginPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "login",  
+    element: <LoginPage/>
+  }
 ]);
 
 // Render the application
