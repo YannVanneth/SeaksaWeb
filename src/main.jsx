@@ -5,9 +5,9 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Rootlayout from "./components/layouts/Rootlayout.jsx";
 import CoursesPage from "./pages/CoursesPage.jsx";
-import LoginPage from "./components/auths/LoginPage.jsx";
-import RegisterPage from "./components/auths/RegisterPage.jsx";
-import VerifyPage from "./components/auths/VerifyPage.jsx";
+import AboutUsPage from "./pages/AboutUsPage.jsx";
+import DetailPage from "./pages/DetailPage.jsx";
+import MyLearningPage from "./pages/MyLearning.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,16 +23,16 @@ const router = createBrowserRouter([
         element: <CoursesPage />,
       },
       {
-        path: "/login",
-        element: <LoginPage />,
+        path: "/mylearning",
+        element: <MyLearningPage />,
       },
       {
-        path: "/register",
-        element: <RegisterPage/>
+        path: "/about",
+        element: <AboutUsPage />,
       },
       {
-      path: "/VerifyPage",
-      element: <VerifyPage/>
+        path: "/detailpage",
+        element: <DetailPage />,
       },
       {
         path: "/*",

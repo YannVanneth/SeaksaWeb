@@ -7,7 +7,7 @@ import { useState } from "react";
 export function Prevers() {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const onPageChange = (page: Number) => setCurrentPage(page);
+  const onPageChange = (page: number) => setCurrentPage(page);
 
   return (
     <div className="flex overflow-x-auto sm:justify-center">
