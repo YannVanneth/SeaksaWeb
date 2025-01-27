@@ -21,13 +21,21 @@ export default function NavbarComponent() {
         </Navbar.Brand>
         <div className="flex items-center md:order-2">
           <LuSunMoon className="text-2xl text-center mr-3" />
+         <Link
+         to="/login"
+         >
           <Button className="hidden md:block bg-primary text-white mr-3 hover:bg-primary-dark transition duration-200">
             Login
           </Button>
+         </Link>
+          <Link 
+            to="/register"
+          >
           <Button className="hidden md:block border border-black bg-white text-black hover:bg-primary hover:text-white transition duration-200">
             Sign Up
             <CgLogIn className="inline h-5 w-5 ml-2" />
           </Button>
+          </Link>
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse>
