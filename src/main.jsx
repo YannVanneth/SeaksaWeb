@@ -7,6 +7,7 @@ import Rootlayout from "./components/layouts/Rootlayout.jsx";
 import CoursesPage from "./pages/CoursesPage.jsx";
 import AboutUsPage from "./pages/AboutUsPage.jsx";
 import DetailPage from "./pages/DetailPage.jsx";
+import MyLearningPage from "./pages/MyLearning.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,12 +23,16 @@ const router = createBrowserRouter([
         element: <CoursesPage />,
       },
       {
+        path: "/mylearning",
+        element: <MyLearningPage />,
+      },
+      {
         path: "/about",
         element: <AboutUsPage />,
       },
       {
         path: "/detailpage",
-        element: <DetailPage />,  
+        element: <DetailPage />,
       },
       {
         path: "/*",
