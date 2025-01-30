@@ -1,33 +1,48 @@
 import { useState } from "react";
 import { IoMdAlarm } from "react-icons/io";
-import CartComponent from "../components/ui/CartComponent";
+import CartComponent from "../../components/ui/CartComponent";
 
+import { MorkUpData } from "../../lib/data/MorkUpData";
 const CourseContent = ({ isRemind = true, value = 1 }) => {
+  // Fetch data from MorkUpData
+  const data = MorkUpData;
+  // Fetch data from favouriteCoursesData
+  const favouriteCourse = JSON.parse(localStorage.getItem("bookmark")) || [];
+
   return (
     <div>
       {isRemind && <RemindLearning />}
 
       {value === 1 && (
         <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-5 gap-y-6">
-          {...Array(4)
-            .fill()
-            .map((_) => <CartComponent />)}
+          {data.map((item) => (
+            <CartComponent id={item.id} key={item.id} />
+          ))}
         </div>
       )}
 
       {value === 2 && (
         <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-5 gap-y-6">
-          {...Array(10)
-            .fill()
-            .map((_) => <CartComponent />)}
+          {
+            // Filter data based on the id in favouriteCourses
+            data.length != 0 && favouriteCourse.length != 0 ? (
+              data
+                .filter((item) => favouriteCourse.includes(item.id))
+                .map((item) => <CartComponent id={item?.id} key={item.id} />)
+            ) : (
+              <p className="text-left text-lg font-bold">
+                No Favourite Courses
+              </p>
+            )
+          }
         </div>
       )}
 
       {value === 3 && (
         <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-5 gap-y-6">
-          {...Array(5)
-            .fill()
-            .map((_) => <CartComponent />)}
+          {[...Array(5)].fill().map((_, index) => (
+            <CartComponent id={index + 1} key={index} />
+          ))}
         </div>
       )}
     </div>

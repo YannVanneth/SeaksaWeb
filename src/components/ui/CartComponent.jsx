@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { IoBook } from "react-icons/io5";
 import { IoMdTime } from "react-icons/io";
+import { GoBookmarkFill, GoBookmark } from "react-icons/go";
 import { Avatar } from "flowbite-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -10,16 +11,39 @@ import { MorkUpData } from "../../lib/data/MorkUpData";
 export default function CartComponent({ id }) {
   const navigate = useNavigate();
 
+  // Retrieve bookmarked courses from localStorage
+  const savedBookmarks = JSON.parse(localStorage.getItem("bookmark")) || [];
+
+  // Check if the current course is bookmarked
+  const [isBookmarked, setIsBookmarked] = useState(savedBookmarks.includes(id));
+
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
 
+  // Find the course data
   const data = MorkUpData.find((item) => item.id === id);
   // If data is not found, redirect to a 404 page or display a message
   if (!data) {
     navigate("/not-found"); // Redirect to a 404 page or any other route
     return null; // Return null to prevent rendering the component
   }
+
+  const toggleBookmark = (event) => {
+    event.preventDefault(); // Prevent navigation when clicking the bookmark icon
+    let updatedBookmarks;
+
+    if (isBookmarked) {
+      updatedBookmarks = savedBookmarks.filter(
+        (bookmarkId) => bookmarkId !== id
+      );
+    } else {
+      updatedBookmarks = [...savedBookmarks, id];
+    }
+
+    setIsBookmarked(!isBookmarked);
+    localStorage.setItem("bookmark", JSON.stringify(updatedBookmarks));
+  };
 
   return (
     <Link to={`/detailpage/${data.id}`}>
@@ -43,13 +67,18 @@ export default function CartComponent({ id }) {
                   </div>
                 </div>
               </div>
+              <button onClick={toggleBookmark} className="focus:outline-none">
+                {isBookmarked ? (
+                  <GoBookmarkFill className="text-primary text-3xl" />
+                ) : (
+                  <GoBookmark className="text-primary text-3xl" />
+                )}
+              </button>
             </div>
 
-            <a href="#">
-              <h3 className="mt-4 text-lg font-semibold text-gray-900 line-clamp-2">
-                {data.title}
-              </h3>
-            </a>
+            <h3 className="mt-4 text-lg font-semibold text-gray-900 line-clamp-2">
+              {data.title}
+            </h3>
 
             <p className="mt-2 text-sm text-gray-500 line-clamp-3">
               {data.description}

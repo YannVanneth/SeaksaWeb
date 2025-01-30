@@ -80,18 +80,19 @@ export default function NavbarComponent() {
             <FaUser className="inline-block text-2xl text-primary md:hidden" />
 
             {/* Sign In Button (Desktop) */}
-            <a
-              className="group rounded-md relative overflow-hidden border border-primary px-3 py-2 md:px-4 focus:outline-none focus:ring hidden md:inline-block"
-              href="#">
-              <span className="absolute inset-y-0 left-0 w-[2px] bg-primary transition-all group-hover:w-full group-active:bg-primary"></span>
-              <span className="relative text-sm font-medium text-black transition-colors group-hover:text-white">
-                Sign In
-                <CgLogIn className="inline h-5 w-5 ml-2" />
-              </span>
-            </a>
+            <Link to="/register">
+              <a
+                className="group rounded-md relative overflow-hidden border border-primary px-3 py-2 md:px-4 focus:outline-none focus:ring hidden md:inline-block"
+                href="#">
+                <span className="absolute inset-y-0 left-0 w-[2px] bg-primary transition-all group-hover:w-full group-active:bg-primary"></span>
+                <span className="relative text-sm font-medium text-black transition-colors group-hover:text-white">
+                  Get Start
+                  <CgLogIn className="inline h-5 w-5 ml-2" />
+                </span>
+              </a>
+            </Link>
           </div>
         </div>
-
         {/* Dropdown Menu for Mobile */}
         {isDropdownOpen && (
           <div
