@@ -10,7 +10,7 @@ export function Prevers() {
   const onPageChange = (page: number) => setCurrentPage(page);
 
   return (
-    <div className="flex overflow-x-auto sm:justify-center">
+    <div className="flex overflow-x-auto sm:justify-center dark:bg-primaryDark pb-10">
       <Pagination
         currentPage={currentPage}
         totalPages={100}

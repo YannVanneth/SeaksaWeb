@@ -45,7 +45,7 @@ const Chart = () => {
     <>
       <div className="w-full max-w-[75%] mx-auto items-center py-16 xl:flex ">
         <div data-aos="fade-right" className="text-center md:text-start">
-          <p className=" text-4xl mb-4 font-bold tracking-tight text-gray-900 sm:text-5xl">
+          <p className=" text-4xl mb-4 font-bold tracking-tight text-gray-900 dark:text-textDark sm:text-5xl">
             It's The Chart of our enrolled last 6 month
           </p>
           <p className="text-md w-full">
@@ -58,10 +58,10 @@ const Chart = () => {
             className="bg-primary text-white rounded-sm mt-3"
           />
         </div>
-        <div data-aos="fade-up" className="flex justify-center w-full mt-4">
+        <div data-aos="fade-up" className="flex justify-center w-full mt-4 ">
           <ChartContainer
             config={chartConfig}
-            className="h-[200px] md:h-[400px] border-2 p-8 rounded-md ml-3"
+            className="h-[200px] md:h-[400px] border-2 p-8 rounded-md ml-3 "
           >
             <BarChart accessibilityLayer data={chartData}>
               <CartesianGrid vertical={false} />
@@ -84,93 +84,13 @@ const Chart = () => {
 };
 // Reusable Components
 const CardSpp = ({ value, icons, title, description, actionButton }) => (
-  <div className="w-full md:w-fit p-4 bg-white rounded-lg shadow-md h-fit mb-5">
+  <div className="w-full md:w-fit p-4 bg-white dark:bg-secondaryDark rounded-lg shadow-md h-fit mb-5">
     <img src={icons} alt={title} width={46} height={51} />
     <div className="my-3">
       <p className="font-bold mb-2 text-lg">{title}</p>
       <p className="text-sm text-primary">{description}</p>
     </div>
-    <InteractiveHoverButton children="Explor" className="rounded-md" />
-  </div>
-);
-
-const CategoryCard = ({ ImageSrc, title, NumberOfCourses }) => (
-  <>
-    <a
-      href="#"
-      className="relative block rounded-tr-3xl border border-gray-100"
-    >
-      <span className="absolute -right-px -top-px rounded-bl-3xl rounded-tr-3xl bg-rose-600 px-6 py-4 font-medium uppercase tracking-widest text-white">
-        Save 10%
-      </span>
-
-      <img
-        src={ImageSrc}
-        alt=""
-        className="w-full rounded-tr-3xl object-fill"
-      />
-      <div className="p-4 text-start">
-        <strong className="text-xl font-medium text-gray-900">
-          {" "}
-          Aloe Vera{" "}
-        </strong>
-
-        <p className="mt-2 text-pretty text-gray-700">{title}</p>
-
-        <span className="mt-4 block rounded-md border  bg-secondary px-5 py-3 text-sm font-medium uppercase tracking-widest text-white transition-colors hover:bg-white hover:text-indigo-900">
-          Learn More
-        </span>
-      </div>
-    </a>
-  </>
-);
-
-const PopularCourseCard = ({
-  title,
-  description,
-  ImageSrc,
-  CourseDuration,
-  NumberOfLectures,
-}) => {
-  const [isBookmarked, setIsBookmarked] = React.useState(false);
-
-  const toggleBookmark = () => {
-    setIsBookmarked((prev) => !prev);
-  };
-
-  return (
-    <div className="bg-white rounded-lg overflow-hidden shadow-md">
-      <img src={ImageSrc} alt={title} className="w-full" />
-      <div className="p-4">
-        <div className="flex justify-between items-center">
-          <p className="text-xl font-bold">{title}</p>
-          <button onClick={toggleBookmark} aria-label="Bookmark">
-            <CiBookmark size={30} color={isBookmarked ? "blue" : "gray"} />
-          </button>
-        </div>
-        <p className="text-sm my-4">{description}</p>
-        <div className="flex xl:justify-between xl:items-center xl:flex-row lg:flex-col lg:items-start text-sm">
-          <div className="flex items-center gap-2">
-            <img src={LecturesIcon} alt="Lectures" />
-            <span>{NumberOfLectures} Lectures</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <img src={DurationIcon} alt="Duration" />
-            <span>{CourseDuration} Hours</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const TipCard = ({ ImageSrc, Title, description }) => (
-  <div className="w-full bg-white shadow-md rounded-lg overflow-hidden">
-    <img src={ImageSrc} alt={Title} className="w-full" />
-    <div className="p-4">
-      <p className="text-xl font-bold mb-2">{Title}</p>
-      <p className="text-sm">{description}</p>
-    </div>
+    <InteractiveHoverButton children="Explor" className="rounded-md " />
   </div>
 );
 
@@ -209,14 +129,14 @@ const HeroSection = () => (
       />
       <span
         data-aos="fade-left"
-        className="absolute top-0 right-0 bg-white p-4 rounded-lg shadow-lg text-center"
+        className="absolute top-0 right-0 bg-white dark:text-textDark dark:bg-secondaryDark p-4 rounded-lg shadow-lg text-center"
       >
         250 <br />
         Active Students
       </span>
       <span
         data-aos="fade-left"
-        className="absolute -bottom-8 -left-12 bg-white p-4 rounded-lg shadow-lg text-center"
+        className="absolute -bottom-8 -left-12 bg-white dark:text-textDark dark:bg-secondaryDark p-4 rounded-lg shadow-lg text-center"
       >
         150 <br />
         Free Courses
@@ -226,7 +146,7 @@ const HeroSection = () => (
 );
 
 const SupportSections = () => (
-  <section className="w-full mt-12  max-w-[75%] mx-auto flex flex-col  md:flex-row   items-start py-16 justify-between">
+  <section className="w-full mt-12 max-w-[75%] mx-auto flex flex-col md:flex-row items-start py-16 justify-between">
     <div data-aos="fade-up">
       <CardSpp
         className="mb-3"
@@ -261,7 +181,7 @@ const SupportSections = () => (
 const CategoriesSection = () => (
   <section className="w-full max-w-[75%] mx-auto flex flex-col items-start py-16">
     <div data-aos="fade-right" className="w-full">
-      <p className="text-start text-4xl mb-4 font-bold tracking-tight text-gray-900 sm:text-5xl">
+      <p className="text-start text-4xl mb-4 font-bold tracking-tight text-gray-900 dark:text-textDark sm:text-5xl">
         Our Famous Courses
       </p>
       <p className="text-md text-start w-full md:w-[45%]">
@@ -372,12 +292,12 @@ const TestimonialSlider = () => {
   ];
 
   return (
-    <section className="bg-white">
+    <section className="bg-white dark:bg-primaryDark">
       <div
         data-aos="fade-right"
         className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16"
       >
-        <h2 className="text-start  text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+        <h2 className="text-start  text-4xl font-bold tracking-tight text-gray-900 dark:text-textDark sm:text-5xl">
           Read trusted reviews from our students.
         </h2>
         <div data-aos="fade-up" className="mt-8">
@@ -387,7 +307,7 @@ const TestimonialSlider = () => {
                 key={index}
                 className="keen-slider__slide opacity-40 transition-opacity duration-500"
               >
-                <blockquote className="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+                <blockquote className="rounded-lg bg-gray-50 dark:bg-secondaryDark p-6 shadow-sm sm:p-8">
                   <div className="flex items-center gap-4">
                     <img
                       alt={testimonial.name}
@@ -408,12 +328,14 @@ const TestimonialSlider = () => {
                           </svg>
                         ))}
                       </div>
-                      <p className="mt-0.5 text-lg font-medium text-gray-900">
+                      <p className="mt-0.5 text-lg font-medium text-gray-900 dark:text-textDark">
                         {testimonial.name}
                       </p>
                     </div>
                   </div>
-                  <p className="mt-4 text-gray-700">{testimonial.text}</p>
+                  <p className="mt-4 text-gray-700 dark:text-textDark">
+                    {testimonial.text}
+                  </p>
                 </blockquote>
               </div>
             ))}
@@ -479,7 +401,7 @@ function HomePages() {
     AOS.init({ duration: 1000 });
   }, []);
   return (
-    <main>
+    <main className="bg-white dark:bg-primaryDark dark:text-textDark">
       <HeroSection />
       <SupportSections />
       <TestimonialSlider />

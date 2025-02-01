@@ -20,7 +20,6 @@ const OurTeam = () => {
               origin: "center",
               perView: 1.25,
               spacing: 16,
-              
             },
             breakpoints: {
               "(min-width: 1024px)": {
@@ -63,18 +62,18 @@ const OurTeam = () => {
     AOS.init({ duration: 1000 });
   }, []);
   return (
-    <section className="bg-gray-50">
+    <section className="bg-gray-50 dark:bg-primaryDark">
       <div className="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
         <div
           data-aos="fade-up"
           className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16"
         >
           <div className="max-w-xl text-start ltr:sm:text-left rtl:sm:text-right">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-textDark sm:text-4xl">
               Meet Our Teams
             </h2>
 
-            <p className="mt-4 text-gray-700">
+            <p className="mt-4 text-gray-700 dark:text-textDark">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
               veritatis illo placeat harum porro optio fugit a culpa sunt id!
             </p>
@@ -126,7 +125,7 @@ const OurTeam = () => {
           <div data-aos="fade-left" className="-mx-6 lg:col-span-2 lg:mx-0">
             <div id="keen-slider" className="keen-slider">
               <div className="keen-slider__slide">
-                <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+                <blockquote className="flex h-full flex-col justify-between bg-white dark:bg-secondaryDark p-6 shadow-sm sm:p-8 lg:p-12">
                   <div>
                     <div className="mt-4">
                       <div className="flex items-center gap-4">
@@ -136,7 +135,7 @@ const OurTeam = () => {
                           rounded
                         />
                         <div className="text-left">
-                          <div className="font-medium text-secondary dark:text-white">
+                          <div className="font-medium text-secondary dark:text-textDark">
                             Rin Sanom
                           </div>
                           <div className="text-sm text-gray-500 dark:text-gray-400">
@@ -144,12 +143,12 @@ const OurTeam = () => {
                           </div>
                         </div>
                       </div>
-                      <p className="mt-2 text-gray-700 dark:text-white">
+                      <p className="mt-2 text-gray-700 dark:text-textDark">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Voluptas veritatis illo placeat harum porro optio fugit
                         a culpa sunt id.
                       </p>
-                      <ul className="flex p-3 pl-0 space-x-4 text-xl text-gray-600">
+                      <ul className="flex p-3 pl-0 space-x-4 text-xl text-gray-600 dark:text-textDark">
                         <li>
                           <a
                             href="https://www.linkedin.com"
@@ -189,13 +188,13 @@ const OurTeam = () => {
                       </ul>
                     </div>
                   </div>
-                  <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                  <footer className="mt-4 text-sm font-medium text-gray-700 dark:text-textDark sm:mt-6">
                     &mdash; Front-End / Back-End Devoloper
                   </footer>
                 </blockquote>
               </div>
               <div className="keen-slider__slide">
-                <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+                <blockquote className="flex h-full flex-col justify-between bg-white dark:bg-secondaryDark p-6 shadow-sm sm:p-8 lg:p-12">
                   <div>
                     <div className="mt-4">
                       <div className="flex items-center gap-4">
@@ -205,20 +204,20 @@ const OurTeam = () => {
                           rounded
                         />
                         <div className="text-left">
-                          <div className="font-medium text-secondary dark:text-white">
+                          <div className="font-medium text-secondary dark:text-textDark">
                             Yann Vanneth
                           </div>
-                          <div className="text-sm text-gray-500 dark:text-gray-400">
+                          <div className="text-sm text-gray-500 dark:text-textDark">
                             Member
                           </div>
                         </div>
                       </div>
-                      <p className="mt-2 text-gray-700 dark:text-white">
+                      <p className="mt-2 text-gray-700 dark:text-textDark">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Voluptas veritatis illo placeat harum porro optio fugit
                         a culpa sunt id.
                       </p>
-                      <ul className="flex p-3 pl-0 space-x-4 text-xl text-gray-600">
+                      <ul className="flex p-3 pl-0 space-x-4 text-xl text-gray-600 dark:text-textDark">
                         <li>
                           <a
                             href="https://www.linkedin.com"
@@ -258,13 +257,13 @@ const OurTeam = () => {
                       </ul>
                     </div>
                   </div>
-                  <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                  <footer className="mt-4 text-sm font-medium text-gray-700 dark:text-textDark sm:mt-6">
                     &mdash; Front-End / Back-End Devoloper
                   </footer>
                 </blockquote>
               </div>
               <div className="keen-slider__slide">
-                <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+                <blockquote className="flex h-full flex-col justify-between bg-white dark:bg-secondaryDark p-6 shadow-sm sm:p-8 lg:p-12">
                   <div>
                     <div className="mt-4">
                       <div className="flex items-center gap-4">
@@ -274,10 +273,10 @@ const OurTeam = () => {
                           rounded
                         />
                         <div className="text-left">
-                          <div className="font-medium text-secondary dark:text-white">
+                          <div className="font-medium text-secondary dark:text-textDark">
                             Mach Mol
                           </div>
-                          <div className="text-sm text-gray-500 dark:text-gray-400">
+                          <div className="text-sm text-gray-500 dark:text-textDark">
                             Member
                           </div>
                         </div>
@@ -287,7 +286,7 @@ const OurTeam = () => {
                         Voluptas veritatis illo placeat harum porro optio fugit
                         a culpa sunt id.
                       </p>
-                      <ul className="flex p-3 pl-0 space-x-4 text-xl text-gray-600">
+                      <ul className="flex p-3 pl-0 space-x-4 text-xl text-gray-600 dark:text-textDark">
                         <li>
                           <a
                             href="https://www.linkedin.com"
@@ -327,7 +326,7 @@ const OurTeam = () => {
                       </ul>
                     </div>
                   </div>
-                  <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                  <footer className="mt-4 text-sm font-medium text-gray-700 dark:text-textDark sm:mt-6">
                     &mdash; Front-End Devoloper
                   </footer>
                 </blockquote>

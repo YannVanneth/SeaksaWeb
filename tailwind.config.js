@@ -1,3 +1,5 @@
+import { theme } from 'flowbite-react';
+
 /** @type {import('tailwindcss').Config} */
 const flowbite = require("flowbite-react/tailwind");
 export default {
@@ -18,7 +20,11 @@ export default {
   			secondary: '#2563eb',
   			text: '#bcbfc5',
   			header: '#111928',
-  			background: '#0d9488'
+  			background: '#0d9488',
+			textDark: "#FFFFFF",
+			primaryDark: "#121212",
+			secondaryDark: "#151B23"
+
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

@@ -61,10 +61,10 @@ const TabSection = ({ isRemind = true }) => {
       <div className="flex">
         <button
           onClick={() => handleChange(1)}
-          className={`px-4 py-2 text-sm font-bold transition-all duration-300 ${
+          className={`px-4 py-2 text-sm font-bold transition-all duration-300 dark:text-textDark ${
             value === 1
               ? "text-primary border-b-2 border-primary"
-              : "text-gray-500 hover:text-gray-700"
+              : "text-gray-500 hover:text-gray-700 "
           }`}
           role="tab"
           aria-selected={value === 1}
@@ -73,7 +73,7 @@ const TabSection = ({ isRemind = true }) => {
         </button>
         <button
           onClick={() => handleChange(2)}
-          className={`px-4 py-2 text-sm font-bold transition-all duration-300 ${
+          className={`px-4 py-2 text-sm font-bold transition-all duration-300 dark:text-textDark ${
             value === 2
               ? "text-primary border-b-2 border-primary"
               : "text-gray-500 hover:text-gray-700"
@@ -85,7 +85,7 @@ const TabSection = ({ isRemind = true }) => {
         </button>
         <button
           onClick={() => handleChange(3)}
-          className={`px-4 py-2 text-sm font-bold transition-all duration-300 ${
+          className={`px-4 py-2 text-sm font-bold transition-all duration-300 dark:text-textDark ${
             value === 3
               ? "text-primary border-b-2 border-primary"
               : "text-gray-500 hover:text-gray-700"
@@ -102,7 +102,7 @@ const TabSection = ({ isRemind = true }) => {
 };
 
 const RemindLearning = ({
-  className = "flex gap-2 p-4 bg-gray-50 rounded-xl my-4",
+  className = "flex gap-2 p-4 bg-gray-50 dark:bg-primaryDark dark:border-[1px] dark:text-textDark rounded-xl my-6 ",
 }) => {
   return (
     <div className={`${className}`}>
@@ -112,7 +112,9 @@ const RemindLearning = ({
       </div>
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-1">
-          <p className="font-bold text-lg">Remind Learning</p>
+          <p className="font-bold text-lg dark:text-textDark">
+            Remind Learning
+          </p>
           <p className="text-sm">
             Learning a little each day adds up. Research shows that students who
             make learning a habit are more likely to reach their goals. Set time
@@ -120,10 +122,10 @@ const RemindLearning = ({
           </p>
         </div>
         <div className="flex gap-2">
-          <button className="text-black border-2 border-green-600 p-2 rounded-md text-sm font-bold hover:bg-primary hover:text-white transition-all duration-300">
+          <button className="text-black dark:text-textDark border-2 border-green-600 p-2 rounded-md text-sm font-bold hover:bg-primary hover:text-white transition-all duration-300">
             Set Reminder
           </button>
-          <button className="font-bold text-sm text-red-600 p-2 rounded-md hover:bg-red-600 hover:text-white transition-all duration-300">
+          <button className=" dark:text-textDark font-bold text-sm text-red-600 p-2 rounded-md hover:bg-red-600 hover:text-white transition-all duration-300">
             Dismiss
           </button>
         </div>
@@ -133,10 +135,14 @@ const RemindLearning = ({
 };
 
 const MyLearningPage = () => (
-  <div className="w-[75%] mx-auto my-10">
-    <p className="font-bold xl:text-5xl text-4xl ">My Learning Page</p>
-    <TabSection />
-  </div>
+  <section className="dark:bg-primaryDark">
+    <div className="w-[75%] mx-auto py-10">
+      <p className="font-bold xl:text-5xl text-4xl dark:text-textDark">
+        My Learning Page
+      </p>
+      <TabSection />
+    </div>
+  </section>
 );
 
 export default MyLearningPage;

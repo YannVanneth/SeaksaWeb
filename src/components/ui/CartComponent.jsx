@@ -50,8 +50,8 @@ export default function CartComponent({ id }) {
       <div data-aos="fade-up">
         <article className="overflow-hidden rounded-lg shadow transition hover:translate-y-2 hover:shadow-xl">
           <img alt="" src={data.img} className="h-56 w-full object-cover" />
-          <div className="bg-white p-4 sm:p-6">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+          <div className="bg-white dark:bg-secondaryDark p-4 sm:p-6">
+            <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <Avatar
                   img="https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg"
@@ -59,10 +59,10 @@ export default function CartComponent({ id }) {
                   rounded
                 />
                 <div className="text-left">
-                  <div className="font-medium text-gray-900 dark:text-white">
+                  <div className="font-medium text-gray-900 dark:text-textDark">
                     Jese Leos
                   </div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400">
+                  <div className="text-sm text-gray-500 dark:text-textDark">
                     Joined in August 2014
                   </div>
                 </div>
@@ -76,22 +76,22 @@ export default function CartComponent({ id }) {
               </button>
             </div>
 
-            <h3 className="mt-4 text-lg font-semibold text-gray-900 line-clamp-2">
+            <h3 className="mt-4 text-lg font-semibold text-gray-900 dark:text-textDark line-clamp-2">
               {data.title}
             </h3>
 
-            <p className="mt-2 text-sm text-gray-500 line-clamp-3">
+            <p className="mt-2 text-sm text-gray-500 dark:text-textDark line-clamp-3">
               {data.description}
             </p>
 
             <div className="mt-3 flex flex-wrap items-center justify-between text-sm text-gray-500">
               <div className="flex items-center gap-2">
                 <IoBook className="text-primary text-[18px]" />
-                <span>10 Lectures</span>
+                <span className="dark:text-textDark">10 Lectures</span>
               </div>
               <div className="flex items-center gap-2">
                 <IoMdTime className="text-primary text-xl" />
-                <span>4 Hours</span>
+                <span className="dark:text-textDark">4 Hours</span>
               </div>
             </div>
           </div>
