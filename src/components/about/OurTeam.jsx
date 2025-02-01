@@ -1,382 +1,113 @@
-import { Avatar } from "flowbite-react";
-import React, { useEffect } from "react";
-import { FaLinkedin } from "react-icons/fa6";
-import { FaTelegram } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import KeenSlider from "keen-slider";
+import "keen-slider/keen-slider.min.css";
+import { Quote } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+const MemberData = [
+  {
+    tamnel:
+      "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    name: "Rin Sanom",
+    position: "Student from RUPP",
+    image: "../src/assets/member/nom.png",
+  },
+  {
+    tamnel:
+      "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    name: "Yann Vanneth",
+    position: "Student from RUPP",
+    image: "../src/assets/member/neth.png",
+  },
+  {
+    tamnel:
+      "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    name: "Mach Mol ",
+    position: "Student from RUPP",
+    image:
+      "https://imgs.search.brave.com/PixY8_zgl8cU1m2y47bf0V-2jOluOmEHOR4564ScsUA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAwLzY0LzY3LzI3/LzM2MF9GXzY0Njcy/NzM2X1U1a3BkR3M5/a2VVbGw4Q1JRM3Az/WWFFdjJNNnFrVlk1/LmpwZw",
+  },
+];
 const OurTeam = () => {
+  const sliderRef = useRef(null);
+  const keenSliderInstance = useRef(null);
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const [totalSlides, setTotalSlides] = useState(0);
+
   useEffect(() => {
-    // Import KeenSlider dynamically
-    import("https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm").then(
-      (KeenSlider) => {
-        const keenSlider = new KeenSlider.default(
-          "#keen-slider",
-          {
-            loop: true,
-            slides: {
-              origin: "center",
-              perView: 1.25,
-              spacing: 16,
-              
-            },
-            breakpoints: {
-              "(min-width: 1024px)": {
-                slides: {
-                  origin: "auto",
-                  perView: 1.5,
-                  spacing: 32,
-                },
-              },
-            },
-          },
-          []
-        );
-
-        const keenSliderPrevious = document.getElementById(
-          "keen-slider-previous"
-        );
-        const keenSliderNext = document.getElementById("keen-slider-next");
-
-        const keenSliderPreviousDesktop = document.getElementById(
-          "keen-slider-previous-desktop"
-        );
-        const keenSliderNextDesktop = document.getElementById(
-          "keen-slider-next-desktop"
-        );
-
-        keenSliderPrevious.addEventListener("click", () => keenSlider.prev());
-        keenSliderNext.addEventListener("click", () => keenSlider.next());
-
-        keenSliderPreviousDesktop.addEventListener("click", () =>
-          keenSlider.prev()
-        );
-        keenSliderNextDesktop.addEventListener("click", () =>
-          keenSlider.next()
-        );
-      }
-    );
+    if (sliderRef.current) {
+      keenSliderInstance.current = new KeenSlider(sliderRef.current, {
+        loop: true,
+        defaultAnimation: { duration: 750 },
+        slides: { origin: "center", perView: 1, spacing: 24 },
+        created(slider) {
+          setCurrentSlide(slider.track.details.rel + 1);
+          setTotalSlides(slider.slides.length);
+        },
+        slideChanged(slider) {
+          setCurrentSlide(slider.track.details.rel + 1);
+        },
+      });
+    }
+    return () => keenSliderInstance.current?.destroy();
   }, []);
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
   return (
-    <section className="bg-gray-50">
-      <div className="mx-auto max-w-[1340px] px-4 py-12 sm:px-6 lg:me-0 lg:py-16 lg:pe-0 lg:ps-8 xl:py-24">
-        <div
-          data-aos="fade-up"
-          className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16"
-        >
-          <div className="max-w-xl text-start ltr:sm:text-left rtl:sm:text-right">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Meet Our Teams
-            </h2>
-
-            <p className="mt-4 text-gray-700">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
-              veritatis illo placeat harum porro optio fugit a culpa sunt id!
-            </p>
-
-            <div className="hidden lg:mt-8 lg:flex lg:gap-4">
-              <button
-                aria-label="Previous slide"
-                id="keen-slider-previous-desktop"
-                className="rounded-full border border-secondary p-4 text-secondary transition hover:bg-secondary hover:text-white"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-5 rtl:rotate-180"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 19.5L8.25 12l7.5-7.5"
+    <section className="bg-white py-12 ">
+      <div className="mx-auto max-w-screen-xl  px-40 ">
+        <h2 className="text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+          Detail About Our team
+        </h2>
+        <div ref={sliderRef} className="keen-slider mt-8">
+          {MemberData.map((member, index) => (
+            <div key={index} className="keen-slider__slide">
+              <div
+                data-aos="zoom-out-left"
+                className="flex items-stretch overflow-hidden rounded-lg bg-white">
+                <div className="relative flex w-72 items-center justify-center ">
+                  <img
+                    alt={member.name}
+                    src={member.image}
+                    className="relative z-10 size-48 rounded-full object-cover"
                   />
-                </svg>
-              </button>
+                </div>
 
-              <button
-                aria-label="Next slide"
-                id="keen-slider-next-desktop"
-                className="rounded-full border border-secondary p-4 text-secondary transition hover:bg-secondary hover:text-white"
-              >
-                <svg
-                  className="size-5 rtl:rotate-180"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9 5l7 7-7 7"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                  />
-                </svg>
-              </button>
+                <div className="flex flex-1 flex-col justify-center p-8 space-x-1">
+                  <blockquote className="text-lg text-gray-800 ">
+                    {member.tamnel || "No description available."}
+                  </blockquote>
+
+                  <div className="mt-4">
+                    <p className="text-lg font-semibold text-blue-600">
+                      {member.name}
+                    </p>
+                    <p className="text-sm text-red-500">{member.position}</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div data-aos="fade-left" className="-mx-6 lg:col-span-2 lg:mx-0">
-            <div id="keen-slider" className="keen-slider">
-              <div className="keen-slider__slide">
-                <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
-                  <div>
-                    <div className="mt-4">
-                      <div className="flex items-center gap-4">
-                        <Avatar
-                          img="https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg"
-                          alt="avatar of Jese"
-                          rounded
-                        />
-                        <div className="text-left">
-                          <div className="font-medium text-secondary dark:text-white">
-                            Rin Sanom
-                          </div>
-                          <div className="text-sm text-gray-500 dark:text-gray-400">
-                            Team Leader
-                          </div>
-                        </div>
-                      </div>
-                      <p className="mt-2 text-gray-700 dark:text-white">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptas veritatis illo placeat harum porro optio fugit
-                        a culpa sunt id.
-                      </p>
-                      <ul className="flex p-3 pl-0 space-x-4 text-xl text-gray-600">
-                        <li>
-                          <a
-                            href="https://www.linkedin.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaLinkedin />
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://telegram.org"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaTelegram />
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://github.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaGithub />
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://www.facebook.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaFacebook />
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-                    &mdash; Front-End / Back-End Devoloper
-                  </footer>
-                </blockquote>
-              </div>
-              <div className="keen-slider__slide">
-                <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
-                  <div>
-                    <div className="mt-4">
-                      <div className="flex items-center gap-4">
-                        <Avatar
-                          img="https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg"
-                          alt="avatar of Jese"
-                          rounded
-                        />
-                        <div className="text-left">
-                          <div className="font-medium text-secondary dark:text-white">
-                            Yann Vanneth
-                          </div>
-                          <div className="text-sm text-gray-500 dark:text-gray-400">
-                            Member
-                          </div>
-                        </div>
-                      </div>
-                      <p className="mt-2 text-gray-700 dark:text-white">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptas veritatis illo placeat harum porro optio fugit
-                        a culpa sunt id.
-                      </p>
-                      <ul className="flex p-3 pl-0 space-x-4 text-xl text-gray-600">
-                        <li>
-                          <a
-                            href="https://www.linkedin.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaLinkedin />
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://telegram.org"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaTelegram />
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://github.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaGithub />
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://www.facebook.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaFacebook />
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-                    &mdash; Front-End / Back-End Devoloper
-                  </footer>
-                </blockquote>
-              </div>
-              <div className="keen-slider__slide">
-                <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
-                  <div>
-                    <div className="mt-4">
-                      <div className="flex items-center gap-4">
-                        <Avatar
-                          img="https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg"
-                          alt="avatar of Jese"
-                          rounded
-                        />
-                        <div className="text-left">
-                          <div className="font-medium text-secondary dark:text-white">
-                            Mach Mol
-                          </div>
-                          <div className="text-sm text-gray-500 dark:text-gray-400">
-                            Member
-                          </div>
-                        </div>
-                      </div>
-                      <p className="mt-2 text-gray-700 dark:text-white">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Voluptas veritatis illo placeat harum porro optio fugit
-                        a culpa sunt id.
-                      </p>
-                      <ul className="flex p-3 pl-0 space-x-4 text-xl text-gray-600">
-                        <li>
-                          <a
-                            href="https://www.linkedin.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaLinkedin />
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://telegram.org"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaTelegram />
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://github.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaGithub />
-                          </a>
-                        </li>
-                        <li>
-                          <a
-                            href="https://www.facebook.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FaFacebook />
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                  <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
-                    &mdash; Front-End Devoloper
-                  </footer>
-                </blockquote>
-              </div>
-              {/* Repeat the above block for more slides */}
-            </div>
-          </div>
+          ))}
         </div>
-        <div className="mt-8 flex justify-center gap-4 lg:hidden">
+
+        <div className="mt-8 flex items-center justify-center gap-4">
           <button
             aria-label="Previous slide"
-            id="keen-slider-previous"
-            className="rounded-full border border-secondary p-4 text-secondary transition hover:bg-secondary hover:text-white"
-          >
-            <svg
-              className="size-5 -rotate-180 transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9 5l7 7-7 7"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-              />
-            </svg>
+            onClick={() => keenSliderInstance.current?.prev()}
+            className="rounded-full bg-gray-100 p-2 text-gray-600 transition-colors hover:bg-blue-600 hover:text-white">
+            &#9664;
           </button>
-
+          <p className="w-16 text-center text-sm text-gray-700">
+            {currentSlide} / {totalSlides}
+          </p>
           <button
             aria-label="Next slide"
-            id="keen-slider-next"
-            className="rounded-full border  border-secondary p-4 text-secondary transition hover:bg-secondary    hover:text-white"
-          >
-            <svg
-              className="size-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M9 5l7 7-7 7"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-              />
-            </svg>
+            onClick={() => keenSliderInstance.current?.next()}
+            className="rounded-full bg-gray-100 p-2 text-gray-600 transition-colors hover:bg-blue-600 hover:text-white">
+            &#9654;
           </button>
         </div>
       </div>
