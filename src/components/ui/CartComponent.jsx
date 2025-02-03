@@ -24,7 +24,7 @@ export default function CartComponent({ id }) {
   return (
     <Link to={`/detailpage/${data.id}`}>
       <div data-aos="fade-up">
-        <article className="overflow-hidden rounded-lg shadow transition hover:translate-y-2 hover:shadow-xl">
+        <article className="overflow-hidden rounded-lg shadow transition hover:shadow-xl">
           <img alt="" src={data.img} className="h-56 w-full object-cover" />
           <div className="bg-white p-4 sm:p-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
