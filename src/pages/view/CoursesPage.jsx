@@ -1,51 +1,44 @@
 import { FloatingLabel } from "flowbite-react";
 import React from "react";
 import { CiSearch } from "react-icons/ci";
-import CartComponent from "../components/ui/CartComponent";
-import { Prevers } from "../components/ui/Prevers";
-import { HyperText } from "../components/ui/HyperText";
-import {AvatarCircles} from "../components/ui/AvatarCircles";
+import CartComponent from "../../components/ui/CartComponent";
+import { Prevers } from "../../components/ui/Prevers";
+
 export default function CoursesPage() {
   return (
     <>
-      <div className="text-start">
-      <section className="bg-gray-900 text-white">
-  <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
-    <div className="mx-auto max-w-3xl text-center">
-      <h1
-        className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl"
-      >
-        Understand User Flow.
+      {/* <div className="text-start">
+        <section className="bg-gray-900 text-white">
+          <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
+            <div className="mx-auto max-w-3xl text-center">
+              <h1 className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
+                Understand User Flow.
+                <span className="sm:block"> Increase Conversion. </span>
+              </h1>
+              <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Nesciunt illo tenetur fuga ducimus numquam ea!
+              </p>
+              <div className="mt-8 flex flex-wrap justify-center gap-4">
+                <a
+                  className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
+                  href="#">
+                  Get Started
+                </a>
 
-        <span className="sm:block"> Increase Conversion. </span>
-      </h1>
-
-      <p className="mx-auto mt-4 max-w-xl sm:text-xl/relaxed">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus
-        numquam ea!
-      </p>
-
-      <div className="mt-8 flex flex-wrap justify-center gap-4">
-        <a
-          className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-          href="#"
-        >
-          Get Started
-        </a>
-
-        <a
-          className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
-          href="#"
-        >
-          Learn More
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-      </div>
-      <div className="flex flex-wrap justify-between     items-center border-b-2 shadow-sm px-4 md:px-14 space-y-4 md:space-y-0">
+                <a
+                  className="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
+                  href="#">
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div> */}
+      <div className="flex flex-wrap justify-between sticky top-[70px] z-30 bg-white  items-center border-b-2 shadow-sm px-4 md:px-14 space-y-4 md:space-y-0">
         {/* Search Bar */}
+
         <div className=" border-gray-200 p-2">
           <div className="relative w-[300px]">
             <FloatingLabel
@@ -84,14 +77,9 @@ export default function CoursesPage() {
         </div>
       </div>
       <div className="grid sm:items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 md:p-14">
-        <CartComponent courseId="12345" />
-        <CartComponent />
-        <CartComponent />
-        <CartComponent />
-        <CartComponent />
-        <CartComponent />
-        <CartComponent />
-        <CartComponent />
+        {[...Array(10)].map((_, index) => (
+          <CartComponent key={index} id={index + 1} />
+        ))}
       </div>
       <Prevers className="mb-4" />
     </>

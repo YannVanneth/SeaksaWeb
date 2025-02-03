@@ -4,22 +4,28 @@ import { IoMdTime } from "react-icons/io";
 import { Avatar } from "flowbite-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Link } from "react-router-dom";
-export default function CartComponent() {
+import { Link, useNavigate } from "react-router-dom";
+import { MorkUpData } from "../../lib/data/MorkUpData";
+
+export default function CartComponent({ id }) {
+  const navigate = useNavigate();
+
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
 
+  const data = MorkUpData.find((item) => item.id === id);
+  // If data is not found, redirect to a 404 page or display a message
+  if (!data) {
+    navigate("/not-found"); // Redirect to a 404 page or any other route
+    return null; // Return null to prevent rendering the component
+  }
+
   return (
-    <>
-      <Link to ="/detailpage">
+    <Link to={`/detailpage/${data.id}`}>
       <div data-aos="fade-up">
-        <article className="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
-          <img
-            alt=""
-            src="./src/assets/Git.jpg"
-            className="h-56 w-full object-cover"
-          />
+        <article className="overflow-hidden rounded-lg shadow transition hover:shadow-xl">
+          <img alt="" src={data.img} className="h-56 w-full object-cover" />
           <div className="bg-white p-4 sm:p-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-center gap-4">
@@ -40,18 +46,13 @@ export default function CartComponent() {
             </div>
 
             <a href="#">
-              <h3 className="mt-4 text-lg font-semibold text-gray-900">
-                How to position your furniture for positivity
+              <h3 className="mt-4 text-lg font-semibold text-gray-900 line-clamp-2">
+                {data.title}
               </h3>
             </a>
 
             <p className="mt-2 text-sm text-gray-500 line-clamp-3">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Recusandae dolores, possimus pariatur animi temporibus nesciunt
-              praesentium dolore sed nulla ipsum eveniet corporis quidem,
-              mollitia itaque minus soluta, voluptates neque explicabo tempora
-              nisi culpa eius atque dignissimos. Molestias explicabo corporis
-              voluptatem?
+              {data.description}
             </p>
 
             <div className="mt-3 flex flex-wrap items-center justify-between text-sm text-gray-500">
@@ -67,7 +68,6 @@ export default function CartComponent() {
           </div>
         </article>
       </div>
-      </Link>
-    </>
+    </Link>
   );
 }

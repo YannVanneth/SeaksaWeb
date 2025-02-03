@@ -4,14 +4,13 @@ import { FaArrowRight } from "react-icons/fa6";
 import "keen-slider/keen-slider.min.css";
 import AOS from "aos";
 // Import images (replace with actual paths)
-import BookIcon from "../assets/book_icons.svg";
-import SupportIcon from "../assets/support_icon.svg";
-import WebDevelopmentIcon from "../assets/Web_development.svg";
-import FigmaIcon from "../assets/figma.svg";
-import LecturesIcon from "../assets/Lectures.svg";
-import DurationIcon from "../assets/Duration.svg";
-import HomepageImage from "../assets/homepage_01.png";
-import HtmlIcon from "../assets/html.svg";
+import BookIcon from "../../assets/book_icons.svg";
+import SupportIcon from "../../assets/support_icon.svg";
+import FigmaIcon from "../../assets/figma.svg";
+import LecturesIcon from "../../assets/Lectures.svg";
+import DurationIcon from "../../assets/Duration.svg";
+import HomepageImage from "../../assets/homepage_01.png";
+import HtmlIcon from "../../assets/html.svg";
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 import "aos/dist/aos.css"; // Import AOS styles
 
@@ -19,8 +18,9 @@ import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "../components/ui/chart";
-import { InteractiveHoverButton } from "../components/ui/InteractiveHoverButton";
+} from "../../components/ui/chart";
+import { InteractiveHoverButton } from "../../components/ui/InteractiveHoverButton";
+import CartComponent from "../../components/ui/CartComponent";
 const Chart = () => {
   const chartData = [
     { month: "January", desktop: 186, mobile: 80 },
@@ -43,8 +43,8 @@ const Chart = () => {
   };
   return (
     <>
-      <div className="w-full max-w-[75%] mx-auto  items-center py-16">
-        <div data-aos="fade-right" className="text-center">
+      <div className="w-full max-w-[75%] mx-auto items-center py-16 xl:flex ">
+        <div data-aos="fade-right" className="text-center md:text-start">
           <p className=" text-4xl mb-4 font-bold tracking-tight text-gray-900 sm:text-5xl">
             It's The Chart of our enrolled last 6 month
           </p>
@@ -52,12 +52,16 @@ const Chart = () => {
             Gain comprehensive knowledge and skills through our expertly
             designed courses, tailored to enhance your learning experience.
           </p>
+          <InteractiveHoverButton
+            data-aos="fade-up-right"
+            children="ENROLL"
+            className="bg-primary text-white rounded-sm mt-3"
+          />
         </div>
         <div data-aos="fade-up" className="flex justify-center w-full mt-4">
           <ChartContainer
             config={chartConfig}
-            className="h-[200px] md:h-[400px] border-2 p-8 rounded-md ml-3"
-          >
+            className="h-[200px] md:h-[400px] border-2 p-8 rounded-md ml-3">
             <BarChart accessibilityLayer data={chartData}>
               <CartesianGrid vertical={false} />
               <XAxis
@@ -93,8 +97,7 @@ const CategoryCard = ({ ImageSrc, title, NumberOfCourses }) => (
   <>
     <a
       href="#"
-      className="relative block rounded-tr-3xl border border-gray-100"
-    >
+      className="relative block rounded-tr-3xl border border-gray-100">
       <span className="absolute -right-px -top-px rounded-bl-3xl rounded-tr-3xl bg-rose-600 px-6 py-4 font-medium uppercase tracking-widest text-white">
         Save 10%
       </span>
@@ -174,8 +177,7 @@ const HeroSection = () => (
     <div className="w-full">
       <h1
         data-aos="fade-down-right"
-        className="font-bold leading-tight text-2xl md:text-6xl xl:text-7xl"
-      >
+        className="font-bold leading-tight text-2xl md:text-6xl xl:text-7xl">
         <span className="text-primary">Take your time</span>
         <br />
         and learn from
@@ -204,15 +206,13 @@ const HeroSection = () => (
       />
       <span
         data-aos="fade-left"
-        className="absolute top-0 right-0 bg-white p-4 rounded-lg shadow-lg text-center"
-      >
+        className="absolute top-0 right-0 bg-white p-4 rounded-lg shadow-lg text-center">
         250 <br />
         Active Students
       </span>
       <span
         data-aos="fade-left"
-        className="absolute -bottom-8 -left-12 bg-white p-4 rounded-lg shadow-lg text-center"
-      >
+        className="absolute -bottom-8 -left-12 bg-white p-4 rounded-lg shadow-lg text-center">
         150 <br />
         Free Courses
       </span>
@@ -239,8 +239,7 @@ const SupportSections = () => (
     </div>
     <div
       data-aos="fade-up"
-      className="w-full md:w-1/2 mt-8 md:mt-0 md:ml-10 xl:w-1/4 "
-    >
+      className="w-full md:w-1/2 mt-8 md:mt-0 md:ml-10 xl:w-1/4 ">
       <p className="text-2xl md:text-4xl font-bold mb-3">
         Our best features
         <br />
@@ -266,15 +265,9 @@ const CategoriesSection = () => (
     </div>
     <div
       data-aos="fade-up"
-      className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12"
-    >
+      className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-12">
       {[...Array(3)].map((_, index) => (
-        <CategoryCard
-          key={index}
-          ImageSrc={WebDevelopmentIcon}
-          title="Web Development"
-          NumberOfCourses="7"
-        />
+        <CartComponent key={index} id={index + 1} />
       ))}
     </div>
   </section>
@@ -438,8 +431,7 @@ const TestimonialSlider = () => {
     <section className="bg-white">
       <div
         data-aos="fade-right"
-        className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16"
-      >
+        className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <h2 className="text-start  text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
           Read trusted reviews from our students.
         </h2>
@@ -448,8 +440,7 @@ const TestimonialSlider = () => {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="keen-slider__slide opacity-40 transition-opacity duration-500"
-              >
+                className="keen-slider__slide opacity-40 transition-opacity duration-500">
                 <blockquote className="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
                   <div className="flex items-center gap-4">
                     <img
@@ -465,8 +456,7 @@ const TestimonialSlider = () => {
                             xmlns="http://www.w3.org/2000/svg"
                             className="size-5"
                             viewBox="0 0 20 20"
-                            fill="currentColor"
-                          >
+                            fill="currentColor">
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                           </svg>
                         ))}
@@ -486,16 +476,14 @@ const TestimonialSlider = () => {
             <button
               aria-label="Previous slide"
               id="keen-slider-previous"
-              className="text-gray-600 transition-colors hover:text-gray-900"
-            >
+              className="text-gray-600 transition-colors hover:text-gray-900">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="size-5"
-              >
+                className="size-5">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -512,15 +500,13 @@ const TestimonialSlider = () => {
             <button
               aria-label="Next slide"
               id="keen-slider-next"
-              className="text-gray-600 transition-colors hover:text-gray-900"
-            >
+              className="text-gray-600 transition-colors hover:text-gray-900">
               <svg
                 className="size-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+                xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M9 5l7 7-7 7"
                   strokeLinecap="round"
