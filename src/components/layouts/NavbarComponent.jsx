@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FloatingLabel, Navbar } from "flowbite-react";
-import { Button } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { CgLogIn } from "react-icons/cg";
-import { RiMoonClearLine } from "react-icons/ri";
 import { FaUser } from "react-icons/fa6";
 import { IoMenu } from "react-icons/io5";
+import { DarkMode } from "../DarkMode";
+
 export default function NavbarComponent() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for dropdown
   const dropdownRef = useRef(null); // Ref for dropdown
@@ -29,7 +29,7 @@ export default function NavbarComponent() {
 
   return (
     <>
-      <Navbar className="sticky top-0 left-0 z-50 border-b bg-white dark:bg-gray-800 md:px-12 xl:px-32">
+      <Navbar className="sticky top-0 left-0 z-50 border-b bg-white md:px-12 xl:px-32 dark:bg-primaryDark">
         <div className="container mx-auto flex flex-wrap items-center justify-between px-4 py-2">
           {/* Brand Logo and Name */}
           <Navbar.Brand href="" className="flex items-center">
@@ -38,7 +38,7 @@ export default function NavbarComponent() {
               className="mr-3 h-6 sm:h-9"
               alt="Flowbite React Logo"
             />
-            <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
+            <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-textDark">
               SEAKSA
             </span>
           </Navbar.Brand>
@@ -47,17 +47,17 @@ export default function NavbarComponent() {
           <Navbar.Collapse className="w-full md:flex md:w-auto md:items-center mt-3 md:mt-0">
             <div className="flex flex-col md:flex-row md:space-x-8">
               <Link to="/">
-                <Navbar.Link className="hover:text-primary block py-2 md:py-0">
+                <Navbar.Link className="hover:text-primary block py-2 md:py-0 dark:text-textDark">
                   Home
                 </Navbar.Link>
               </Link>
               <Link to="/courses">
-                <Navbar.Link className="hover:text-primary block py-2 md:py-0">
+                <Navbar.Link className="hover:text-primary block py-2 md:py-0 dark:text-textDark">
                   Courses
                 </Navbar.Link>
               </Link>
               <Link to="/about">
-                <Navbar.Link className="hover:text-primary block py-2 md:py-0">
+                <Navbar.Link className="hover:text-primary block py-2 md:py-0 dark:text-textDark">
                   About
                 </Navbar.Link>
               </Link>
@@ -67,25 +67,28 @@ export default function NavbarComponent() {
           {/* Sign In Button and Theme Toggle (Always on the Right) */}
           <div className="flex items-center space-x-4">
             {/* Dark Mode Button */}
-            <RiMoonClearLine className="text-2xl" />
+            <DarkMode />
 
             {/* Mobile Menu Icon */}
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)} // Toggle dropdown
-              className="text-3xl inline-block md:hidden focus:outline-none">
+              className="text-3xl inline-block md:hidden focus:outline-none"
+            >
               <IoMenu />
             </button>
 
             {/* User Icon (Mobile) */}
+
             <FaUser className="inline-block text-2xl text-primary md:hidden" />
 
             {/* Sign In Button (Desktop) */}
             <Link to="/register">
               <a
                 className="group rounded-md relative overflow-hidden border border-primary px-3 py-2 md:px-4 focus:outline-none focus:ring hidden md:inline-block"
-                href="#">
+                href="#"
+              >
                 <span className="absolute inset-y-0 left-0 w-[2px] bg-primary transition-all group-hover:w-full group-active:bg-primary"></span>
-                <span className="relative text-sm font-medium text-black transition-colors group-hover:text-white">
+                <span className="relative text-sm font-medium text-black transition-colors group-hover:text-white dark:text-textDark">
                   Get Start
                   <CgLogIn className="inline h-5 w-5 ml-2" />
                 </span>
@@ -97,14 +100,16 @@ export default function NavbarComponent() {
         {isDropdownOpen && (
           <div
             ref={dropdownRef} // Attach ref to dropdown
-            className="absolute top-[70px] left-0 right-0 bg-white shadow-lg animate-slideDown z-50">
+            className="absolute top-[70px] left-0 right-0 bg-white shadow-lg animate-slideDown z-50"
+          >
             <div className="px-4 py-6">
               <ul className="space-y-1">
                 <Link to="/" onClick={() => setIsDropdownOpen(false)}>
                   <li>
                     <a
                       href=""
-                      className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700">
+                      className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
+                    >
                       Home
                     </a>
                   </li>
@@ -113,7 +118,8 @@ export default function NavbarComponent() {
                   <li>
                     <a
                       href="#"
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                    >
                       Courses
                     </a>
                   </li>
@@ -122,7 +128,8 @@ export default function NavbarComponent() {
                   <li>
                     <a
                       href="#"
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                    >
                       About Us
                     </a>
                   </li>

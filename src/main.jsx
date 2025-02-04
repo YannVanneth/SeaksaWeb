@@ -13,6 +13,8 @@ import AddCourse from "./pages/admin/AddCourse.jsx";
 import Resgister from "./components/auth/Resgister.jsx";
 import { OTP } from "./components/auth/OTP.jsx";
 import LoginForm from "./components/auth/LoginForm.jsx";
+import MyLearningPage from "./pages/view/MyLearning.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/courses",
         element: <CoursesPage />,
+      },
+      {
+        path: "/mylearning",
+        element: <MyLearningPage />,
       },
       {
         path: "/about",

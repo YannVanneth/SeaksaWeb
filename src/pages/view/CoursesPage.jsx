@@ -36,7 +36,7 @@ export default function CoursesPage() {
           </div>
         </section>
       </div> */}
-      <div className="flex flex-wrap justify-between sticky top-[70px] z-30 bg-white  items-center border-b-2 shadow-sm px-4 md:px-14 space-y-4 md:space-y-0">
+      <div className="flex flex-wrap justify-between sticky top-[70px] z-30 bg-white dark:bg-primaryDark items-center border-b-2 shadow-sm px-4 md:px-14 space-y-4 md:space-y-0">
         {/* Search Bar */}
 
         <div className=" border-gray-200 p-2">
@@ -46,12 +46,12 @@ export default function CoursesPage() {
               variant="outlined"
               label="Search Course name"
             />
-            <CiSearch className="absolute right-1  top-1/2 transform -translate-y-1/2 text-gray-400 text-xl cursor-pointer" />
+            <CiSearch className="absolute right-1  top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-textDark text-xl cursor-pointer" />
           </div>
         </div>
         {/* Navigation Menu */}
         <div className="w-[316px] pb-4 md:w-auto h-1">
-          <ul className="flex flex-wrap  justify-center md:justify-start space-x-6 text-gray-700 font-sans text-base">
+          <ul className="flex flex-wrap  justify-center md:justify-start space-x-6 text-gray-700 dark:text-textDark font-sans text-base">
             <li className="cursor-pointer hover:text-primary hover:border-b-2 border-primary transition duration-200">
               All
             </li>
@@ -68,15 +68,15 @@ export default function CoursesPage() {
         </div>
         <div className="w-[316px] flex justify-end">
           <button className="border-2 flex md:inline-block text-white p-2 px-4 hover:bg-primary-dark transition duration-200 items-center justify-center">
-            <p className="text-text mr-2">Filter</p>
+            <p className="text-text  dark:text-textDark mr-2">Filter</p>
             {/* <FaFilter className="text-secondary" /> */}
           </button>
-          <button className="border-2 hidden md:inline-block  border-l-0 text-text p-2  hover:bg-primary-dark transition duration-200">
+          <button className="border-2 hidden md:inline-block  border-l-0 dark:text-textDark text-text p-2  hover:bg-primary-dark transition duration-200">
             Recently
           </button>
         </div>
       </div>
-      <div className="grid sm:items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 md:p-14">
+      <div className="grid sm:items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 md:p-14 dark:bg-primaryDark">
         {[...Array(10)].map((_, index) => (
           <CartComponent key={index} id={index + 1} />
         ))}

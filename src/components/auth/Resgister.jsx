@@ -8,24 +8,23 @@ import register from "../../api/auth/AuthAction.js";
 
 export default function App() {
   const initialValues = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "Ifmesayes123!",
-    password_confirmation: "Ifmesayes123!",
-    marketing_accept: false,
+    firstname: "",
+    lastname: "",
+    email: "johndoe@example.com",
+    password: "securePassword123",
+    confirmpassword: "securePassword123",
   };
 
   const validationSchema = Yup.object({
-    firstName: Yup.string().required("First name is required"),
-    lastName: Yup.string().required("Last name is required"),
+    firstname: Yup.string().required("First name is required"),
+    lastname: Yup.string().required("Last name is required"),
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required"),
     password: Yup.string()
       .min(8, "Password must be at least 8 characters long")
       .required("Password is required"),
-    password_confirmation: Yup.string()
+    confirmpassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Passwords must match")
       .required("Password confirmation is required"),
     marketing_accept: Yup.boolean().oneOf(
@@ -35,13 +34,12 @@ export default function App() {
   });
 
   const handleSubmit = async (values, { resetForm }) => {
-    console.log("Auth value: ", values); // Process form data
-    console.log("Register Data : ", values);
-    const RegisterData = await register({ values });
-    console.log("Register Data : ", RegisterData);
+    console.log("Registering user with values: ", values); // Process form data
+    const RegisterData = await register(values); // Call API with values directly
+    console.log("Register Data: ", RegisterData);
     resetForm(); // Clear the form after submission
   };
-  const handleRegister = async ({ values }) => {};
+
   return (
     <>
       <section className="bg-white">
@@ -77,181 +75,124 @@ export default function App() {
               </section>
               <main className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
                 <div className="max-w-xl lg:max-w-3xl">
-                  <div className="relative -mt-16 block lg:hidden">
-                    <a
-                      className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white text-blue-600 sm:h-20 sm:w-20"
-                      href="/">
-                      <span className="sr-only">Home</span>
-                      <img
-                        src="../src/assets/logo.png"
-                        className="h-8 sm:h-10"
-                        alt="SeakSa Logo"
+                  <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
+                    Please Complete your information
+                  </h2>
+                  <Form className="mt-8 grid grid-cols-6 gap-6">
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="firstname"
+                        className="block text-sm font-medium text-gray-700">
+                        First Name
+                      </label>
+                      <Field
+                        type="text"
+                        id="firstname"
+                        name="firstname"
+                        className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                       />
-                    </a>
-                    <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-                      Welcome to SeakSa 🦑
-                    </h1>
-                    <p className="mt-4 leading-relaxed text-gray-500">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Eligendi nam dolorum aliquam, quibusdam aperiam
-                      voluptatum.
-                    </p>
-                  </div>
-
-                  {/* Form */}
-                  <div>
-                    <h2 className="text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-                      Please Complete your information
-                    </h2>
-                    <Form className="mt-8 grid grid-cols-6 gap-6">
-                      <div className="col-span-6 sm:col-span-3">
-                        <label
-                          htmlFor="firstName"
-                          className="block text-sm font-medium text-gray-700">
-                          First Name
-                        </label>
-                        <Field
-                          type="text"
-                          id="firstName"
-                          name="firstName"
-                          className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-                        />
-                        <ErrorMessage
-                          name="firstName"
-                          component="div"
-                          className="text-sm text-red-500"
-                        />
-                      </div>
-                      <div className="col-span-6 sm:col-span-3">
-                        <label
-                          htmlFor="lastName"
-                          className="block text-sm font-medium text-gray-700">
-                          Last Name
-                        </label>
-                        <Field
-                          type="text"
-                          id="lastName"
-                          name="lastName"
-                          className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-                        />
-                        <ErrorMessage
-                          name="lastName"
-                          component="div"
-                          className="text-sm text-red-500"
-                        />
-                      </div>
-                      <div className="col-span-6">
-                        <label
-                          htmlFor="email"
-                          className="block text-sm font-medium text-gray-700">
-                          Email
-                        </label>
-                        <Field
-                          type="email"
-                          id="email"
-                          name="email"
-                          className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-                        />
-                        <ErrorMessage
-                          name="email"
-                          component="div"
-                          className="text-sm text-red-500"
-                        />
-                      </div>
-
-                      <div className="col-span-6 sm:col-span-3">
-                        <label
-                          htmlFor="password"
-                          className="block text-sm font-medium text-gray-700">
-                          Password
-                        </label>
-                        <Field
-                          type="password"
-                          id="password"
-                          name="password"
-                          className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-                        />
-                        <ErrorMessage
-                          name="password"
-                          component="div"
-                          className="text-sm text-red-500"
-                        />
-                      </div>
-
-                      <div className="col-span-6 sm:col-span-3">
-                        <label
-                          htmlFor="password_confirmation"
-                          className="block text-sm font-medium text-gray-700">
-                          Password Confirmation
-                        </label>
-                        <Field
-                          type="password"
-                          id="password_confirmation"
-                          name="password_confirmation"
-                          className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-                        />
-                        <ErrorMessage
-                          name="password_confirmation"
-                          component="div"
-                          className="text-sm text-red-500"
-                        />
-                      </div>
-
-                      <div className="col-span-6">
-                        <label
-                          htmlFor="marketing_accept"
-                          className="flex gap-4">
-                          <Field
-                            type="checkbox"
-                            id="marketing_accept"
-                            name="marketing_accept"
-                            className="h-5 w-5 rounded-md border-gray-200 bg-white shadow-sm"
-                          />
-                          <span className="text-sm text-gray-700">
-                            I want to receive emails about events, product
-                            updates, and company announcements.
-                          </span>
-                        </label>
-                        <ErrorMessage
-                          name="marketing_accept"
-                          component="div"
-                          className="text-sm text-red-500"
-                        />
-                      </div>
-
-                      <div className="col-span-6 m-auto sm:items-center sm:gap-4">
-                        <button
-                          type="submit"
-                          className="inline-block shrink-0 rounded-md border mb-4 border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
-                          Create an account
-                        </button>
-                        <p className="text-sm text-gray-500 sm:mt-0">
-                          Already have an account?
-                          <Link to="/login" className="text-gray-700 underline">
-                            Log in
-                          </Link>
-                        </p>
-                      </div>
-                    </Form>
-                  </div>
-                  <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-                    <button className="inline-flex w-full items-center justify-center rounded-md border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">
-                      <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-                        alt="Facebook"
-                        className="h-5 w-5 mr-2"
+                      <ErrorMessage
+                        name="firstname"
+                        component="div"
+                        className="text-sm text-red-500"
                       />
-                      Facebook
-                    </button>
-                    <button className="inline-flex w-full items-center justify-center rounded-md border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">
-                      <FaGoogle className="h-5 w-5 mr-2 text-blue-600" />
-                      Google
-                    </button>
-                    <button className="inline-flex w-full items-center justify-center rounded-md border border-gray-200 bg-white px-4 py-3 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">
-                      <FaApple className="h-5 w-5 mr-2 text-blue-600" />
-                      Apple
-                    </button>
-                  </div>
+                    </div>
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="lastname"
+                        className="block text-sm font-medium text-gray-700">
+                        Last Name
+                      </label>
+                      <Field
+                        type="text"
+                        id="lastname"
+                        name="lastname"
+                        className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                      />
+                      <ErrorMessage
+                        name="lastname"
+                        component="div"
+                        className="text-sm text-red-500"
+                      />
+                    </div>
+                    <div className="col-span-6">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-gray-700">
+                        Email
+                      </label>
+                      <Field
+                        type="email"
+                        id="email"
+                        name="email"
+                        className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                      />
+                      <ErrorMessage
+                        name="email"
+                        component="div"
+                        className="text-sm text-red-500"
+                      />
+                    </div>
+
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="password"
+                        className="block text-sm font-medium text-gray-700">
+                        Password
+                      </label>
+                      <Field
+                        type="password"
+                        id="password"
+                        name="password"
+                        className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                      />
+                      <ErrorMessage
+                        name="password"
+                        component="div"
+                        className="text-sm text-red-500"
+                      />
+                    </div>
+
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="password_confirmation"
+                        className="block text-sm font-medium text-gray-700">
+                        Password Confirmation
+                      </label>
+                      <Field
+                        type="password"
+                        id="confirmpassword"
+                        name="confirmpassword"
+                        className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                      />
+                      <ErrorMessage
+                        name="confirmpassword"
+                        component="div"
+                        className="text-sm text-red-500"
+                      />
+                    </div>
+                    <div className="col-span-6">
+                      <ErrorMessage
+                        name="marketing_accept"
+                        component="div"
+                        className="text-sm text-red-500"
+                      />
+                    </div>
+
+                    <div className="col-span-6 m-auto sm:items-center sm:gap-4">
+                      <button
+                        type="submit"
+                        className="inline-block shrink-0 rounded-md border mb-4 border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
+                        Create an account
+                      </button>
+                      <p className="text-sm text-gray-500 sm:mt-0">
+                        Already have an account?
+                        <Link to="/login" className="text-gray-700 underline">
+                          Log in
+                        </Link>
+                      </p>
+                    </div>
+                  </Form>
                 </div>
               </main>
             </div>
