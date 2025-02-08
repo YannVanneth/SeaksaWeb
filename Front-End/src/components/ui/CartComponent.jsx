@@ -10,23 +10,15 @@ import { MorkUpData } from "../../lib/data/MorkUpData";
 
 export default function CartComponent({ id }) {
   const navigate = useNavigate();
-
-  // Retrieve bookmarked courses from localStorage
   const savedBookmarks = JSON.parse(localStorage.getItem("bookmark")) || [];
-
-  // Check if the current course is bookmarked
   const [isBookmarked, setIsBookmarked] = useState(savedBookmarks.includes(id));
-
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
-
-  // Find the course data
   const data = MorkUpData.find((item) => item.id === id);
-  // If data is not found, redirect to a 404 page or display a message
   if (!data) {
-    navigate("/not-found"); // Redirect to a 404 page or any other route
-    return null; // Return null to prevent rendering the component
+    navigate("/not-found");
+    return null;
   }
 
   const toggleBookmark = (event) => {

@@ -4,7 +4,7 @@ import AOS from "aos";
 // Import images (replace with actual paths)
 import HomepageImage from "../../assets/homepage_01.png";
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
-import "aos/dist/aos.css"; // Import AOS styles
+import "aos/dist/aos.css";
 import {
   ChartContainer,
   ChartTooltip,
@@ -86,7 +86,6 @@ const Chart = () => {
       color: "#60a5fa",
     },
   };
-
   return (
     <>
       <div className="w-full max-w-[75%] mx-auto items-center py-16 xl:flex ">
@@ -127,7 +126,6 @@ const Chart = () => {
     </>
   );
 };
-// Reusable Components
 const CardSpp = ({ title, description, icon: Icon }) => (
   <div
     data-aos="fade-up"
@@ -151,7 +149,7 @@ const CardCount = ({ name, value, text }) => (
 );
 
 const HeroSection = () => (
-  <div className="bg-blue-300 dark:bg-primaryDark rounded-b-[20%] pb-14">
+  <div className="bg-blue-300 dark:bg-primaryDark rounded-[10%] rou rounded-br-none rounded-t-none pb-16">
     <section className="w-full max-w-[75%] mx-auto flex flex-col min-[1182px]:flex-row justify-between items-center py-16">
       <div className="w-full">
         <h1
