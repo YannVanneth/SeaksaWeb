@@ -1,7 +1,7 @@
 import "./App.css";
 import HomePages from "./pages/view/HomePages";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import CoursesPage from "./pages/view/CoursesPage.jsx";
+import CoursesPage from "./pages/view/CoursesPage.tsx";
 import AboutUsPage from "./pages/view/AboutUsPage.jsx";
 import DetailPage from "./pages/view/DetailPage.jsx";
 import Rootlayout from "./components/layouts/Rootlayout.jsx";

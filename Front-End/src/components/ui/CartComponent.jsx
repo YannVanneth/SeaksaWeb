@@ -76,11 +76,11 @@ export default function CartComponent({ id }) {
               </button>
             </div>
 
-            <h3 className="mt-4 text-lg font-semibold text-gray-900 dark:text-textDark line-clamp-2">
+            <h3 className="mt-4 text-lg font-semibold text-gray-900 dark:text-textDark line-clamp-1">
               {data.title}
             </h3>
 
-            <p className="mt-2 text-sm text-gray-500 dark:text-textDark line-clamp-3">
+            <p className="mt-2 text-sm text-gray-500 dark:text-textDark line-clamp-2">
               {data.description}
             </p>
 
