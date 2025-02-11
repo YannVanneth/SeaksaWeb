@@ -10,9 +10,8 @@ enum ThemeMode {
 
 // DarkMode component
 export const DarkMode = () => {
-
   const [theme, setTheme] = useState<ThemeMode>(() => {
-    return (localStorage.getItem("ThemeMode") as ThemeMode) || ThemeMode.Dark;
+    return (localStorage.getItem("ThemeMode") as ThemeMode) || ThemeMode.Light;
   });
 
   useEffect(() => {
@@ -25,7 +24,8 @@ export const DarkMode = () => {
 
   // Function to toggle theme
   const toggleThemeMode = () => {
-    const newTheme = theme === ThemeMode.Dark ? ThemeMode.Light : ThemeMode.Dark;
+    const newTheme =
+      theme === ThemeMode.Dark ? ThemeMode.Light : ThemeMode.Dark;
     setTheme(newTheme);
     localStorage.setItem("ThemeMode", newTheme);
   };
@@ -35,7 +35,7 @@ export const DarkMode = () => {
       {/* Dark Mode Button */}
       <button onClick={toggleThemeMode}>
         {theme === ThemeMode.Dark ? (
-          <MdWbSunny className="text-2xl" color="white"/>
+          <MdWbSunny className="text-2xl" color="white" />
         ) : (
           <RiMoonClearLine className="text-2xl" />
         )}
