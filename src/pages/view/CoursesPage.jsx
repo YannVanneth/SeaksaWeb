@@ -81,6 +81,7 @@ export default function CoursesPage() {
           <CartComponent key={index} id={index + 1} />
         ))}
       </div>
+      
       <Prevers className="mb-4" />
     </>
   );

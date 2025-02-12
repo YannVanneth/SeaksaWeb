@@ -13,6 +13,8 @@ import AddCourse from "./pages/admin/AddCourse.jsx";
 import Resgister from "./components/auth/Resgister.jsx";
 import { OTP } from "./components/auth/OTP.jsx";
 import LoginForm from "./components/auth/LoginForm.jsx";
+import BlongPage from "./pages/view/BlongPage.jsx";
+import BlogDetail from "./pages/view/BlogDetail.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -38,11 +40,18 @@ const router = createBrowserRouter([
         path: "/detailpage/:id",
         element: <DetailPage />,
       },
-
       {
+        path:"/blogpage",
+        element:<BlongPage/>
+      },
+      {
+        path: "/blogdetail",
+        element: <BlogDetail/>,
+      },
+      { 
         path: "/*",
         element: <div>404 Not Found</div>,
-      },
+      }
     ],
   },
   {
