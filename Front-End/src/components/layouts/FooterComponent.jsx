@@ -7,7 +7,6 @@ import {
   BsInstagram,
   BsTwitter,
 } from "react-icons/bs";
-import { FaFacebook } from "react-icons/fa";
 export default function FooterComponent() {
   return (
     <>
