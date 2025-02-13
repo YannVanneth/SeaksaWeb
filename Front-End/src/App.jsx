@@ -12,6 +12,7 @@ import Resgister from "./components/auth/Resgister.jsx";
 import { OTP } from "./components/auth/OTP.jsx";
 import LoginForm from "./components/auth/LoginForm.jsx";
 import MyLearningPage from "./pages/view/MyLearning.jsx";
+import AskingAi from "./pages/view/AskingAi.jsx";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,10 @@ const router = createBrowserRouter([
         path: "/detailpage/:id",
         element: <DetailPage />,
       },
-
+      {
+        path: "/askingai",
+        element: <AskingAi />,
+      },
       {
         path: "/*",
         element: <div>404 Not Found</div>,

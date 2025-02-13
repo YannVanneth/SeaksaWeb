@@ -57,7 +57,7 @@ export default function AboutUsPage() {
       value: (
         <NumberTicker
           value={30}
-          className="whitespace-pre-wrap text-ml font-medium tracking-tighter text-white dark:text-white"
+          className="whitespace-pre-wrap text-ml font-medium tracking-tighter text-primary "
         />
       ),
       text: "+",
@@ -68,7 +68,7 @@ export default function AboutUsPage() {
       value: (
         <NumberTicker
           value={50}
-          className="whitespace-pre-wrap text-ml font-medium tracking-tighter text-white dark:text-white"
+          className="whitespace-pre-wrap text-ml font-medium tracking-tighter text-primary"
         />
       ),
       text: "+",
@@ -78,7 +78,7 @@ export default function AboutUsPage() {
       value: (
         <NumberTicker
           value={100}
-          className="whitespace-pre-wrap text-ml font-medium tracking-tighter text-white dark:text-white"
+          className="whitespace-pre-wrap text-ml font-medium tracking-tighter text-primary"
         />
       ),
       text: "+",
@@ -86,243 +86,46 @@ export default function AboutUsPage() {
     { name: "Paid time off", value: "Unlimited" },
   ];
   return (
-    <section className="dark:bg-primaryDark">
-      <div className="bg-blue-300 dark:bg-primaryDark rounded-b-[20%] pb-14">
-        <section className="flex flex-wrap mx-4 py-10 lg:mx-32 ">
-          <div className="container w-full lg:w-[50%] m-auto order-2 lg:order-1 text-center lg:text-left">
-            <h1
-              data-aos="fade-down-right"
-              className="text-primary text-3xl font-bold">
-              About Us
-            </h1>
-            <div data-aos="fade-right" className="mt-4">
-              <p className="text-xl text-secondary font-bold">
-                WHY SHOULD YOU CHOOSE US?
-              </p>
-              <h2 className="text-2xl lg:text-5xl pl-4 border-l-4 lg:border-l-8 border-secondary text-secondary font-bold text-left">
-                SEAKSA
-              </h2>
-              <p className="text-gray-700 dark:text-textDark text-lg lg:text-2xl mt-4">
-                Education is the most powerful weapon which you can use to
-                change the world. So{" "}
-                <span className="text-primary">SEAKSA</span> providing the best
-                opportunities to Get a Lots Of Skill from Us.
-              </p>
-            </div>
-            <InteractiveHoverButton
-              data-aos="fade-up-right"
-              children="Join Us "
-              className="mt-2 bg-secondary text-white rounded-md"
-            />
+    <div className=" dark:bg-primaryDark">
+      <section className="flex flex-wrap mx-4 px-14 lg:mx-32 ">
+        <div className="container w-full lg:w-[50%] m-auto order-2 lg:order-1 text-center lg:text-left">
+          <h1
+            data-aos="fade-down-right"
+            className="text-primary text-3xl font-bold">
+            About Us
+          </h1>
+          <div data-aos="fade-right" className="mt-4">
+            <p className="text-xl text-secondary font-bold">
+              WHY SHOULD YOU CHOOSE US?
+            </p>
+            <h2 className="text-2xl lg:text-5xl pl-4 border-l-4 lg:border-l-8 border-secondary text-secondary font-bold text-left">
+              SEAKSA
+            </h2>
+            <p className="text-gray-700 dark:text-textDark text-lg lg:text-2xl mt-4">
+              Education is the most powerful weapon which you can use to change
+              the world. So <span className="text-primary">SEAKSA</span>{" "}
+              providing the best opportunities to Get a Lots Of Skill from Us.
+            </p>
           </div>
-          <div
-            data-aos="fade-left"
-            className="w-full lg:w-[50%] order-1 lg:order-2 flex justify-center lg:justify-end">
-            <IconCloud images={images} />
-          </div>
-        </section>
-      </div>
-      <section className="bg-gray-50 dark:bg-primaryDark mt-[120px]">
+          <InteractiveHoverButton
+            data-aos="fade-up-right"
+            children="Join Us "
+            className="mt-2 bg-primary text-white rounded-md"
+          />
+        </div>
         <div
-          data-aos="fade-up"
-          className="mx-auto max-w-screen-2xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-            <blockquote className="flex h-full flex-col justify-between bg-white dark:bg-secondaryDark p-6 shadow-sm sm:p-8">
-              <div>
-                <div className="flex gap-0.5 text-green-500">
-                  <svg
-                    className="size-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    className="size-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    className="size-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    className="size-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    className="size-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                </div>
-
-                <div className="mt-4">
-                  <p className="text-2xl font-bold text-secondary sm:text-3xl">
-                    Our Mission
-                  </p>
-                  <p className="mt-4 leading-relaxed text-gray-700 dark:text-textDark">
-                    No, Rose, they are not breathing. And they have no arms or
-                    legs … Where are they? You know what? If we come across
-                    somebody with no arms or legs, do we bother resuscitating
-                    them? I mean, what quality of life do we have there?
-                  </p>
-                </div>
-              </div>
-
-              <footer className="mt-4 text-sm font-medium text-gray-700 dark:text-textDark sm:mt-6">
-                &mdash; Michael Scott
-              </footer>
-            </blockquote>
-
-            <blockquote className="flex h-full flex-col justify-between bg-white dark:bg-secondaryDark p-6 shadow-sm sm:p-8">
-              <div>
-                <div className="flex gap-0.5 text-green-500">
-                  <svg
-                    className="size-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    className="size-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    className="size-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    className="size-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    className="size-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                </div>
-
-                <div className="mt-4">
-                  <p className="text-2xl font-bold text-secondary sm:text-3xl">
-                    Our vision
-                  </p>
-
-                  <p className="mt-4 leading-relaxed text-gray-700 dark:text-textDark">
-                    No, Rose, they are not breathing. And they have no arms or
-                    legs … Where are they? You know what? If we come across
-                    somebody with no arms or legs, do we bother resuscitating
-                    them? I mean, what quality of life do we have there?
-                  </p>
-                </div>
-              </div>
-
-              <footer className="mt-4 text-sm font-medium text-gray-700 dark:text-textDark sm:mt-6">
-                &mdash; Michael Scott
-              </footer>
-            </blockquote>
-
-            <blockquote className="flex h-full flex-col justify-between bg-white dark:bg-secondaryDark p-6 shadow-sm sm:p-8">
-              <div>
-                <div className="flex gap-0.5 text-green-500">
-                  <svg
-                    className="size-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    className="size-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    className="size-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    className="size-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-
-                  <svg
-                    className="size-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                </div>
-
-                <div className="mt-4">
-                  <p className="text-2xl font-bold text-secondary sm:text-3xl">
-                    Our Valures
-                  </p>
-
-                  <p className="mt-4 leading-relaxed text-gray-700 dark:text-textDark">
-                    No, Rose, they are not breathing. And they have no arms or
-                    legs … Where are they? You know what? If we come across
-                    somebody with no arms or legs, do we bother resuscitating
-                    them? I mean, what quality of life do we have there?
-                  </p>
-                </div>
-              </div>
-
-              <footer className="mt-4 text-sm font-medium text-gray-700 dark:text-textDark sm:mt-6">
-                &mdash; Michael Scott
-              </footer>
-            </blockquote>
-          </div>
+          data-aos="fade-left"
+          className="w-full lg:w-[50%] order-1 lg:order-2 flex justify-center lg:justify-end ">
+          <IconCloud images={images} />
         </div>
       </section>
+      <section></section>
       <section>
         <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
           <img
             alt=""
-            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply"
-            className="absolute inset-0 -z-10 size-full object-cover object-right md:object-center"
+            src="../src/assets/typing.jpg"
+            className="absolute inset-0 -z-10 size-full object-cover object-right md:object-center blur-sm "
           />
           <div
             aria-hidden="true"
@@ -350,12 +153,12 @@ export default function AboutUsPage() {
             <div className="mx-auto max-w-2xl lg:mx-0">
               <h2
                 data-aos="fade-down-right"
-                className="text-5xl font-semibold tracking-tight text-secondary sm:text-7xl">
+                className="text-5xl font-semibold tracking-tight text-primary sm:text-7xl">
                 Work with us
               </h2>
               <p
                 data-aos="fade-right"
-                className="mt-8 text-pretty text-lg font-medium text-gray-300 sm:text-xl/8">
+                className="mt-8 text-pretty text-lg font-medium text-black sm:text-xl/8">
                 Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
                 lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
                 fugiat.
@@ -364,7 +167,7 @@ export default function AboutUsPage() {
             <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
               <div
                 data-aos="fade-right"
-                className="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+                className="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-black sm:grid-cols-2 md:flex lg:gap-x-10">
                 {links.map((link) => (
                   <a key={link.name} href={link.href}>
                     {link.name} <span aria-hidden="true">&rarr;</span>
@@ -376,8 +179,10 @@ export default function AboutUsPage() {
                 className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
                 {stats.map((stat) => (
                   <div key={stat.name} className="flex flex-col-reverse gap-1">
-                    <dt className="text-base/7 text-gray-300">{stat.name}</dt>
-                    <dd className="text-4xl font-semibold tracking-tight text-white">
+                    <dt className=" text-secondary text-lg font-bold">
+                      {stat.name}
+                    </dt>
+                    <dd className="text-4xl  tracking-tight text-primary font-bold">
                       {stat.value}
                       {stat.text}
                     </dd>
@@ -388,7 +193,232 @@ export default function AboutUsPage() {
           </div>
         </div>
       </section>
+      <main className="w-full px-4 py-16 sm:px-6 lg:px-36">
+        {/* Features Section */}
+        <section className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl font-bold">
+              <span className="text-primary">Our </span>
+              <span>Features</span>
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              This very extraordinary feature, can make learning activities more
+              efficient
+            </p>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              {/* Background Blur Effect */}
+              <div className="bg-primary/10 absolute -top-8 -left-8 w-32 h-32 rounded-full blur-3xl" />
+
+              {/* Card Container */}
+              <div className="relative bg-white rounded-xl shadow-lg overflow-hidden">
+                <div className="grid">
+                  {/* Full-Width Image */}
+                  <div className="relative w-full h-64 md:h-80">
+                    <img
+                      src="../src/assets/about/call.png"
+                      alt="Teacher in a video call"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute bottom-2 left-2 bg-black/50 text-white text-xs px-2 py-1 rounded">
+                      6 more members
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <h3 className="text-2xl font-semibold">
+                A <span className="text-primary">user interface</span> designed
+                <br />
+                for the classroom
+              </h3>
+              <div className="space-y-6">
+                {[
+                  {
+                    text: "Teachers don't get lost in the grid view and have a dedicated podium space.",
+                  },
+                  {
+                    text: "TA's and presenters can be moved to the front of the class.",
+                  },
+                  {
+                    text: "Teachers can easily see all students and class data at one time.",
+                  },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-4">
+                    <div className="size-6 rounded bg-muted flex items-center justify-center">
+                      <div className="size-2 rounded-full bg-primary" />
+                    </div>
+                    <p className="text-muted-foreground">{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Tools Section */}
+        <section className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold">
+                <span className="text-primary">Tools</span> For Teachers
+                <br />
+                And Learners
+              </h2>
+              <p className="text-muted-foreground">
+                Class has a dynamic set of teaching tools built to be deployed
+                and used during class. Teachers can handout assignments in
+                real-time for students to complete and submit.
+              </p>
+            </div>
+            <div className="relative">
+              <div className="bg-primary/10 absolute -bottom-8 -right-8 w-32 h-32 rounded-full blur-3xl" />
+              <img
+                src="../src/assets/about/stugril.png"
+                alt="Student with books and materials"
+                className="relative rounded-xl h-[500px]"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Assessment Section */}
+        <section className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              <div className="space-y-4">
+                <h4 className="text-lg font-semibold">
+                  True or false? This play takes place in Italy
+                </h4>
+                <img
+                  src="../src/assets/about/thur.png"
+                  alt="Venice cityscape with gondola"
+                  className="rounded-lg h-[400px]"
+                />
+              </div>
+            </div>
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold">
+                Assessments,
+                <br />
+                <span className="text-primary">Quizzes</span>, Tests
+              </h2>
+              <p className="text-muted-foreground">
+                Easily launch live assignments, quizzes, and tests. Student
+                results are automatically entered in the online gradebook.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Class Management Section */}
+        <section className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold">
+                <span className="text-primary">Class Management</span>
+                <br />
+                Tools for Educators
+              </h2>
+              <p className="text-muted-foreground">
+                Class provides tools to help run and manage the class such as
+                Class Roster, Attendance, and more. With the Gradebook, teachers
+                can review and grade tests and quizzes in real-time.
+              </p>
+            </div>
+            <div className="relative">
+              <div className="bg-white rounded-xl shadow-lg p-6">
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <div className="size-8 rounded-full bg-yellow-400 flex items-center justify-center text-white">
+                        ★
+                      </div>
+                      <span className="font-semibold">GradeBook</span>
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    {[
+                      {
+                        name: "Rin Sanom.",
+                        score: 100,
+                        img: "../src/assets/member/nom.png",
+                      },
+                      {
+                        name: "Yann Vanneth.",
+                        score: 85,
+                        img: "../src/assets/member/neth.png",
+                      },
+                      {
+                        name: "Michael R.",
+                        score: 75,
+                        img: "../src/assets/member/neth.png",
+                      },
+                    ].map((student, i) => (
+                      <div key={i} className="flex items-center gap-4">
+                        {student.img && (
+                          <img
+                            src={student.img}
+                            alt={student.name}
+                            className="size-16 object-cover rounded-full"
+                          />
+                        )}
+                        <div className="flex-1">
+                          <span className="font-semibold">{student.name}</span>
+                          <div className="h-2 rounded-full bg-muted overflow-hidden mt-1">
+                            <div
+                              className="h-full bg-primary"
+                              style={{ width: `${student.score}%` }}
+                            />
+                          </div>
+                        </div>
+                        <span className="font-semibold">{student.score}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <button className="w-full bg-primary text-white rounded-lg py-2">
+                    Export
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* One-on-One Section */}
+        <section className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="relative">
+              <div className="bg-white rounded-xl shadow-lg p-6">
+                <div className="space-y-4">
+                  <h4 className="font-semibold">Private Discussion</h4>
+                  <div className="">
+                    <img
+                      src="../src/assets/about/image.png"
+                      className=" rounded-lg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold">
+                One-on-One
+                <br />
+                <span className="text-primary">Discussions</span>
+              </h2>
+              <p className="text-muted-foreground">
+                Teachers and teacher assistants can talk with students privately
+                without leaving the Zoom environment.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
       <OurTeam />
-    </section>
+    </div>
   );
 }

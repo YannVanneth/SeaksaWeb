@@ -10,23 +10,15 @@ import { MorkUpData } from "../../lib/data/MorkUpData";
 
 export default function CartComponent({ id }) {
   const navigate = useNavigate();
-
-  // Retrieve bookmarked courses from localStorage
   const savedBookmarks = JSON.parse(localStorage.getItem("bookmark")) || [];
-
-  // Check if the current course is bookmarked
   const [isBookmarked, setIsBookmarked] = useState(savedBookmarks.includes(id));
-
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
-
-  // Find the course data
   const data = MorkUpData.find((item) => item.id === id);
-  // If data is not found, redirect to a 404 page or display a message
   if (!data) {
-    navigate("/not-found"); // Redirect to a 404 page or any other route
-    return null; // Return null to prevent rendering the component
+    navigate("/not-found");
+    return null;
   }
 
   const toggleBookmark = (event) => {
@@ -44,7 +36,6 @@ export default function CartComponent({ id }) {
     setIsBookmarked(!isBookmarked);
     localStorage.setItem("bookmark", JSON.stringify(updatedBookmarks));
   };
-
   return (
     <Link to={`/detailpage/${data.id}`}>
       <div data-aos="fade-up">
@@ -83,7 +74,6 @@ export default function CartComponent({ id }) {
             <p className="mt-2 text-sm text-gray-500 dark:text-textDark line-clamp-2">
               {data.description}
             </p>
-
             <div className="mt-3 flex flex-wrap items-center justify-between text-sm text-gray-500">
               <div className="flex items-center gap-2">
                 <IoBook className="text-primary text-[18px]" />
