@@ -55,6 +55,11 @@ export default function NavbarComponent() {
                   Courses
                 </Navbar.Link>
               </Link>
+              <Link to="/blogpage">
+                <Navbar.Link className="hover:text-primary block py-2 md:py-0">
+                  Blog Page
+                </Navbar.Link>
+              </Link>
               <Link to="/about">
                 <Navbar.Link className="hover:text-primary block py-2 md:py-0 dark:text-textDark">
                   About

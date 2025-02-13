@@ -14,6 +14,10 @@ const MemberData = [
     name: "Rin Sanom",
     position: "Student from RUPP",
     image: "../src/assets/member/nom.png",
+    linkedin:"https://www.linkedin.com/in/%E1%9E%9A%E1%9E%B7%E1%9E%93នផម​-%E1%9E%9F%E1%9E%B6%E1%9E%8E%E1%9E%BB%E1%9F%86-920429328/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    telegram: "https://t.me/rinsanom",
+    facebook: "https://www.facebook.com/profile.php?id=100069811077277",
+    github: "https://github.com/RinSanom",
   },
   {
     tamnel:
@@ -21,14 +25,35 @@ const MemberData = [
     name: "Yann Vanneth",
     position: "Student from RUPP",
     image: "../src/assets/member/neth.png",
+    linkedin:"https://www.linkedin.com/in/vanneth-yann-21196b347/",
+    telegram: "https://t.me/YannVanneth",
+    facebook: "https://www.facebook.com/yannvanneth",
+    github: "https://github.com/YannVanneth",
+    
   },
   {
     tamnel:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     name: "Mach Mol",
     position: "Student from RUPP",
+    linkedin:"https://www.linkedin.com/in/mach-mol-0956322b4/",
+    telegram: "https://t.me/machmol",
+    facebook: "https://www.facebook.com/mach.mol.5/",
+    github: "https://github.com/MachMol27",
     image:
-      "https://imgs.search.brave.com/PixY8_zgl8cU1m2y47bf0V-2jOluOmEHOR4564ScsUA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAwLzY0LzY3LzI3/LzM2MF9GXzY0Njcy/NzM2X1U1a3BkR3M5/a2VVbGw4Q1JRM3Az/WWFFdjJNNnFrVlk1/LmpwZw",
+      "../src/assets/member/mol.jpg",
+  },
+  {
+    tamnel:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    name: "Lonh Raksmey",
+    position: "Student from RUPP",
+    linkedin:"",
+    telegram: "https://t.me/@stupid_smey",
+    facebook: "https://www.facebook.com/profile.php?id=100050963561637",
+    github: "https://github.com/LonhRaksmey",
+    image:
+      "../src/assets/member/raksmey.jpg",
   },
 ];
 
@@ -94,7 +119,7 @@ const OurTeam = () => {
                 <ul className="flex justify-center md:justify-start mt-2 space-x-4 text-xl text-gray-600">
                   <li>
                     <a
-                      href="https://www.linkedin.com"
+                      href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer">
                       <FaLinkedin />
@@ -102,15 +127,15 @@ const OurTeam = () => {
                   </li>
                   <li>
                     <a
-                      href="https://telegram.org"
-                      target="_blank"
+                      href={member.telegram}
+                      target="_blank" 
                       rel="noopener noreferrer">
                       <FaTelegram />
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://github.com"
+                      href={member.github}
                       target="_blank"
                       rel="noopener noreferrer">
                       <FaGithub />
@@ -118,7 +143,7 @@ const OurTeam = () => {
                   </li>
                   <li>
                     <a
-                      href="https://www.facebook.com"
+                      href={member.facebook}
                       target="_blank"
                       rel="noopener noreferrer">
                       <FaFacebook />

@@ -14,6 +14,8 @@ import LoginForm from "./components/auth/LoginForm.jsx";
 import MyLearningPage from "./pages/view/MyLearning.jsx";
 import AskingAi from "./pages/view/AskingAi.jsx";
 
+import BlongPage from "./pages/view/BlongPage.jsx";
+import BlogDetail from "./pages/view/BlogDetail.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,10 +29,10 @@ const router = createBrowserRouter([
         path: "/courses",
         element: <CoursesPage />,
       },
-      {
-        path: "/mylearning",
-        element: <MyLearningPage />,
-      },
+      // {
+      //   path: "/mylearning",
+      //   element: <MyLearningPage />,
+      // },
       {
         path: "/about",
         element: <AboutUsPage />,
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
       {
         path: "/askingai",
         element: <AskingAi />,
+      },
+      {
+        path: "/blogpage",
+        element: <BlongPage />,
+      },
+      {
+        path: "/blogdetail",
+        element: <BlogDetail />,
       },
       {
         path: "/*",
