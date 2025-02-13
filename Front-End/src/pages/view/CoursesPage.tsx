@@ -4,10 +4,11 @@ import React, { useState } from "react";
 import CartComponent from "../../components/ui/CartComponent";
 import { Prevers } from "../../components/ui/Prevers";
 import { Tab, Tabs } from "../../components/ui/Tab";
-import { MorkUpData } from "../../lib/data/MorkUpData";
+import { MorkUpData } from "../../lib/data/MorkUpData.js";
 import { FaStar } from "react-icons/fa";
 import Avatar from "@mui/material/Avatar";
-import { Carousel } from "flowbite-react";
+import "keen-slider/keen-slider.min.css";
+import { useKeenSlider } from "keen-slider/react";
 
 ///
 type InstructorCardProps = {
@@ -95,7 +96,7 @@ const TabContents = ({
       </div>
 
       <CourseCarouselSection />
-      <PopularInstructorSection />
+      <PopularInstructorSection data={data} />
 
       <Prevers
         totalItems={Courses.length}
@@ -127,26 +128,42 @@ const TabSection = () => {
 };
 
 const CourseCarouselSection = () => {
-  const CourseItem = () => {
+  const [ref] = useKeenSlider<HTMLDivElement>({
+    slides: {
+      perView: 1,
+      spacing: 10,
+    },
+    loop: true,
+    drag: false,
+
+    created(s) {
+      setInterval(() => {
+        s.prev();
+      }, 4000);
+    },
+  });
+  const CourseItem = ({
+    CourseTitle,
+    CourseImgSrc,
+    CourseDescription,
+  }: {
+    CourseTitle?: string;
+    CourseImgSrc: string;
+    CourseDescription?: string;
+  }) => {
     return (
-      <div className="flex gap-5 items-center">
-        <figure className="w-1/2">
-          <img
-            src="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_3x2.jpg"
-            alt="#"
-          />
+      <div className="flex gap-5 items-start">
+        <figure className="w-[20rem]">
+          <img src={CourseImgSrc} alt="#" />
         </figure>
         <div>
           <p className="font-bold text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
-            repellendus ipsa fugiat tempora culpa sunt.
+            {CourseTitle ? CourseTitle : "Course Title"}
           </p>
           <p className="text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-            fuga qui enim saepe autem culpa deserunt, quis totam, illum aliquam
-            odio optio? Voluptatibus, voluptates, sunt ipsa nihil ipsam magni
-            quam facere asperiores eius ab maxime sapiente accusamus, alias sit
-            magnam?
+            {CourseDescription
+              ? CourseDescription
+              : "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptate."}
           </p>
         </div>
       </div>
@@ -154,26 +171,40 @@ const CourseCarouselSection = () => {
   };
 
   return (
-    <div className="border-2 rounded-lg p-2 my-2">
-      <Carousel
-        slideInterval={3500}
-        indicators={false}
-        leftControl=" "
-        rightControl="  "
-        className="px-9"
-        color="black"
-      >
-        {[
-          ...Array(5)
-            .fill(null)
-            .map((_, index) => <CourseItem key={index} />),
-        ]}
-      </Carousel>
+    <div ref={ref} className="keen-slider border-2 rounded-lg p-2 my-2">
+      <div className="keen-slider__slide">
+        <CourseItem CourseImgSrc="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_3x2.jpg" />
+      </div>
+      <div className="keen-slider__slide">
+        <CourseItem CourseImgSrc="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_3x2.jpg" />
+      </div>
+      <div className="keen-slider__slide">
+        <CourseItem CourseImgSrc="https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_3x2.jpg" />
+      </div>
     </div>
   );
 };
 
-const PopularInstructorSection = () => {
+const PopularInstructorSection = ({
+  data,
+}: {
+  data: InstructorCardProps[];
+}) => {
+  const [ref] = useKeenSlider<HTMLDivElement>({
+    slides: {
+      perView: 3,
+      spacing: 10,
+    },
+    loop: true,
+    drag: false,
+
+    created(s) {
+      setInterval(() => {
+        s.next();
+      }, 3000);
+    },
+  });
+
   const InstructorCard = ({
     imageSrc,
     courseTitle,
@@ -183,15 +214,19 @@ const PopularInstructorSection = () => {
     numberOfCourses,
   }: InstructorCardProps) => {
     return (
-      <div className="flex gap-3 items-start border-2 p-4 rounded-lg h-fit w-fit">
+      <div className="keen-slider__slide flex gap-3 items-start border-2 p-4 rounded-lg h-fit w-fit">
         <Avatar
           alt="Remy Sharp"
           src={imageSrc}
           sx={{ width: 72, height: 72 }}
         />
-        <div>
-          <p className="font-bold text-2xl">{courseTitle}</p>
-          <p>{tags.map((item) => item)}</p>
+        <div className="text-wrap">
+          <p className="font-bold text-2xl md:text-xl sm:text-md">
+            {courseTitle}
+          </p>
+          <p className="text-xl md:text-md sm:text-sm lg:text-lg">
+            {tags.map((item) => item)}
+          </p>
           <div>
             <div className="flex gap-1 items-center">
               <p>{rating}</p>
@@ -206,38 +241,12 @@ const PopularInstructorSection = () => {
     );
   };
 
-  const ListCard = ({ data, index }) => {
-    function calculateData({ data, index }) {
-      const startIndex = (index - 1) * 3;
-      const endIndex = startIndex + 3;
-      return data.slice(startIndex, endIndex);
-    }
-
-    return (
-      <div className="grid grid-cols-4 items-center gap-4">
-        {calculateData({ data, index }).map((item, index) => (
-          <InstructorCard key={index} {...item} />
-        ))}
-      </div>
-    );
-  };
-
   return (
-    <Carousel
-      slideInterval={3500}
-      indicators={false}
-      leftControl=" "
-      rightControl="  "
-      className="my-4"
-    >
-      {[
-        ...Array(Math.round(data.length / 3))
-          .fill(null)
-          .map((_, index) => (
-            <ListCard data={data} index={index + 1} key={index} />
-          )),
-      ]}
-    </Carousel>
+    <div ref={ref} className="keen-slider">
+      {data.map((item: InstructorCardProps, index: number) => (
+        <InstructorCard key={index} {...item} />
+      ))}
+    </div>
   );
 };
 
