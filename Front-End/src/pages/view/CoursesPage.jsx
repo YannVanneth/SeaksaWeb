@@ -77,7 +77,7 @@ export default function CoursesPage() {
         </div>
       </div>
       <div className="grid sm:items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 md:p-14 dark:bg-primaryDark">
-        {[...Array(10)].map((_, index) => (
+        {[...Array(30)].map((_, index) => (
           <CartComponent key={index} id={index + 1} />
         ))}
       </div>

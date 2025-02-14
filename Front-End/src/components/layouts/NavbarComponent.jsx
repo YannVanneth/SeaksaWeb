@@ -29,8 +29,8 @@ export default function NavbarComponent() {
 
   return (
     <>
-      <Navbar className="sticky top-0 left-0 z-50 border-b bg-white md:px-12 xl:px-32 dark:bg-primaryDark">
-        <div className="container mx-auto flex flex-wrap items-center justify-between px-4 py-2">
+      <Navbar className="sticky top-0 left-0 z-50 border-b md:px-12 xl:px-32 bg-blue-300   dark:bg-primaryDark ">
+        <div className="container mx-auto flex flex-wrap items-center justify-between px-14 py-2">
           {/* Brand Logo and Name */}
           <Navbar.Brand href="" className="flex items-center">
             <img
@@ -42,7 +42,6 @@ export default function NavbarComponent() {
               SEAKSA
             </span>
           </Navbar.Brand>
-
           {/* Collapsible Content (Navigation Links) */}
           <Navbar.Collapse className="w-full md:flex md:w-auto md:items-center mt-3 md:mt-0">
             <div className="flex flex-col md:flex-row md:space-x-8">
@@ -61,6 +60,11 @@ export default function NavbarComponent() {
                   About
                 </Navbar.Link>
               </Link>
+              <Link to="/askingai">
+                <Navbar.Link className="hover:text-primary block py-2 md:py-0 dark:text-textDark">
+                  Asking AI
+                </Navbar.Link>
+              </Link>
             </div>
           </Navbar.Collapse>
 
@@ -72,8 +76,7 @@ export default function NavbarComponent() {
             {/* Mobile Menu Icon */}
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)} // Toggle dropdown
-              className="text-3xl inline-block md:hidden focus:outline-none"
-            >
+              className="text-3xl inline-block md:hidden focus:outline-none">
               <IoMenu />
             </button>
 
@@ -85,8 +88,7 @@ export default function NavbarComponent() {
             <Link to="/register">
               <a
                 className="group rounded-md relative overflow-hidden border border-primary px-3 py-2 md:px-4 focus:outline-none focus:ring hidden md:inline-block"
-                href="#"
-              >
+                href="#">
                 <span className="absolute inset-y-0 left-0 w-[2px] bg-primary transition-all group-hover:w-full group-active:bg-primary"></span>
                 <span className="relative text-sm font-medium text-black transition-colors group-hover:text-white dark:text-textDark">
                   Get Start
@@ -100,16 +102,14 @@ export default function NavbarComponent() {
         {isDropdownOpen && (
           <div
             ref={dropdownRef} // Attach ref to dropdown
-            className="absolute top-[70px] left-0 right-0 bg-white shadow-lg animate-slideDown z-50"
-          >
+            className="absolute top-[70px] left-0 right-0 bg-white shadow-lg animate-slideDown z-50">
             <div className="px-4 py-6">
               <ul className="space-y-1">
                 <Link to="/" onClick={() => setIsDropdownOpen(false)}>
                   <li>
                     <a
                       href=""
-                      className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
-                    >
+                      className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700">
                       Home
                     </a>
                   </li>
@@ -118,8 +118,7 @@ export default function NavbarComponent() {
                   <li>
                     <a
                       href="#"
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                    >
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                       Courses
                     </a>
                   </li>
@@ -128,8 +127,7 @@ export default function NavbarComponent() {
                   <li>
                     <a
                       href="#"
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
-                    >
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                       About Us
                     </a>
                   </li>

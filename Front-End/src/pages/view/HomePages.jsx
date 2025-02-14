@@ -11,9 +11,9 @@ import {
   ChartTooltipContent,
 } from "../../components/ui/chart";
 import { InteractiveHoverButton } from "../../components/ui/InteractiveHoverButton";
-import CartComponent from "../../components/ui/CartComponent";
 import cardData from "../../lib/data/cartData.jsx";
 import { NumberTicker } from "../../components/ui/NumberTicker";
+import { Slide } from "../../components/slids/Slide.jsx";
 const stats = [
   {
     name: "Students",
@@ -129,17 +129,19 @@ const Chart = () => {
 const CardSpp = ({ title, description, icon: Icon }) => (
   <div
     data-aos="fade-up"
-    className="flex flex-col items-center p-6 bg-gray-50 rounded-2xl  w-80 text-center mt-7 shadow-sm">
+    className="flex flex-col items-center p-6 bg-gray-50 rounded-2xl  w-80 text-center mt-7 shadow-sm dark:bg-secondaryDark">
     <div className="bg-blue-500 p-4 rounded-full mt-3 relative bottom-[60px]">
       <Icon className="text-white text-2xl" />
     </div>
-    <h2 className="text-lg font-semibold text-gray-900">{title}</h2>
+    <h2 className="text-lg font-semibold text-gray-900 dark:text-white ">
+      {title}
+    </h2>
     <p className="text-gray-600 mt-2">{description}</p>
   </div>
 );
 const CardCount = ({ name, value, text }) => (
-  <div data-aos="fade-up" className="flex justify-center">
-    <div className="bg-gray-50 shadow-sm rounded-lg p-6 text-center w-64">
+  <div data-aos="fade-up" className="flex justify-center ">
+    <div className="bg-gray-50 shadow-sm rounded-lg p-6 text-center w-64 dark:bg-secondaryDark">
       <h1 className="text-4xl font-bold text-primary">
         {value} {text}
       </h1>
@@ -147,9 +149,8 @@ const CardCount = ({ name, value, text }) => (
     </div>
   </div>
 );
-
 const HeroSection = () => (
-  <div className="bg-blue-300 dark:bg-primaryDark rounded-[10%] rou rounded-br-none rounded-t-none pb-16">
+  <div className=" dark:bg-primaryDark pb-16">
     <section className="w-full max-w-[75%] mx-auto flex flex-col min-[1182px]:flex-row justify-between items-center py-16">
       <div className="w-full">
         <h1
@@ -197,63 +198,93 @@ const HeroSection = () => (
     </section>
   </div>
 );
-
 const WhatISSeakSa = () => (
-  <section className=" py-12 rounded rounded-t-[20%]">
-    <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center gap-10">
-      <div className="w-full md:w-1/2 flex justify-center">
-        <img
-          src="../src/assets/student.png"
-          width={330}
-          alt="Students using SeakSa"
-        />
+  <div className="bg-gray-100 dark:bg-primaryDark ">
+    <section className=" w-full max-w-[75%] mx-auto flex flex-col min-[1182px]:flex-row justify-between items-center py-16">
+      <div className=" flex flex-col md:flex-row items-center gap-10">
+        <div className="w-full md:w-1/2 flex">
+          <img
+            data-aos="fade-right"
+            src="../src/assets/img.png"
+            width={330}
+            alt="Students using SeakSa"
+          />
+        </div>
+        <div data-aos="fade-left" className="w-full md:w-1/2 space-y-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
+            What Is <span className="text-primary">SeakSa?</span>
+          </h2>
+          <p className="text-lg md:text-xl text-gray-700 leading-relaxed dark:text-white">
+            <span className="font-semibold text-primary">SeakSa</span> is a
+            powerful platform that enables educators to create and manage online
+            classes seamlessly. It allows teachers to store course materials,
+            manage assignments, quizzes, and exams, monitor due dates, and
+            provide students with feedback—all in one place.
+          </p>
+        </div>
       </div>
-      <div className="w-full md:w-1/2 space-y-6">
-        <h2 className="text-3xl md:text-4xl xl:text-6xl font-bold text-gray-900">
-          What Is <span className="text-primary">SeakSa?</span>
-        </h2>
-        <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-          <span className="font-semibold text-primary">SeakSa</span> is a
-          powerful platform that enables educators to create and manage online
-          classes seamlessly. It allows teachers to store course materials,
-          manage assignments, quizzes, and exams, monitor due dates, and provide
-          students with feedback—all in one place.
-        </p>
+    </section>
+  </div>
+);
+const DemoUs = () => (
+  <section>
+    <div className="w-full max-w-[75%] mx-auto flex flex-col min-[1182px]:flex-row justify-between items-center py-16">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:items-center md:gap-8">
+        <div>
+          <div data-aos="fade-right" className="max-w-lg md:max-w-none">
+            <h2 className="text-3xl md:text-4xl   font-bold text-gray-900 dark:text-white ">
+              Everything you can do in a physical classroom,{" "}
+              <span className="text-primary  ">you can do with seakSa</span>
+            </h2>
+            <p className="mt-4 text-gray-700 text-xl dark:text-white">
+              TOTCs school management software helps traditional and online
+              schools manage scheduling, attendance, payments and virtual
+              classrooms all in one secure cloud-based system.
+            </p>
+          </div>
+        </div>
+        <img
+          data-aos="fade-left"
+          alt=""
+          src="../src/assets/computer.jpg"
+          className="h-full w-full object-cover sm:h-[calc(100%_-_2rem)] sm:self-end sm:rounded-ss-[30px] md:h-[calc(100%_-_4rem)] md:rounded-ss-[60px]"
+        />
       </div>
     </div>
   </section>
 );
 const SupportSections = () => (
-  <section className="w-full mt-12 max-w-[75%] mx-auto md:flex-row items-start py-16 justify-between">
-    <div
-      data-aos="fade-right"
-      className=" leading-tight text-md md:text-2xl xl:text-4xl ">
-      <p className="font-bold text-primary text-5xl">
-        All-In-One {""} <br />
-        <span className=" text-black font-bold dark:text-textDark">
-          Software Devolopment Cousres
-        </span>
-      </p>
-      <p data-aos="fade-up-right" className="text-lg my-6 xl:w-2/3">
-        SeakSa is one powerful online software suite that combines all the tools
-        needed to run a successful school or office. It includes everything your
-        school or office needs to run smoothly.
-      </p>
-    </div>
-    <div className="mt-8 md:mt-2 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-14">
-      {cardData.map((card, index) => (
-        <CardSpp key={index} {...card} />
-      ))}
-    </div>
-  </section>
+  <div className="bg-gray-100 dark:bg-primaryDark">
+    <section className="w-full mt-12 max-w-[75%] mx-auto md:flex-row items-start py-16 justify-between">
+      <div
+        data-aos="fade-right"
+        className=" leading-tight text-md md:text-4xl ">
+        <p className="font-bold text-primary">
+          All-In-One {""} <br />
+          <span className=" text-black font-bold dark:text-textDark">
+            Software Devolopment Cousres
+          </span>
+        </p>
+        <p data-aos="fade-up-right" className="text-lg my-6 xl:w-2/3">
+          SeakSa is one powerful online software suite that combines all the
+          tools needed to run a successful school or office. It includes
+          everything your school or office needs to run smoothly.
+        </p>
+      </div>
+      <div className="mt-8 md:mt-2 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-14">
+        {cardData.map((card, index) => (
+          <CardSpp key={index} {...card} />
+        ))}
+      </div>
+    </section>
+  </div>
 );
-
 const CountSection = () => (
   <section className="w-full mt-7 max-w-[75%] mx-auto md:flex-row items-start py-16 justify-between ">
     <div
       data-aos="fade-up-right"
       className=" leading-tight text-md md:text-2xl xl:text-4xl ">
-      <p className="font-bold text-primary text-5xl">
+      <p className="font-bold text-primary">
         Our Susccess {""} <br />
       </p>
       <p className="text-lg my-6 xl:w-2/3 ">
@@ -269,32 +300,10 @@ const CountSection = () => (
     </div>
   </section>
 );
-const CategoriesSection = () => (
-  <section className="w-full max-w-[75%] mx-auto flex flex-col items-start py-16">
-    <div data-aos="fade-right" className="w-full">
-      <p className="text-start text-4xl mb-4 font-bold tracking-tight text-gray-900 dark:text-textDark sm:text-5xl">
-        Our Famous Courses
-      </p>
-      <p className="text-md text-start w-full md:w-[45%]">
-        Gain comprehensive knowledge and skills through our expertly designed
-        courses, tailored to enhance your learning experience.
-      </p>
-    </div>
-    <div
-      data-aos="fade-up"
-      className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-12">
-      {[...Array(3)].map((_, index) => (
-        <CartComponent key={index} id={index + 1} />
-      ))}
-    </div>
-  </section>
-);
-
 const TestimonialSlider = () => {
   const sliderRef = useRef(null);
   const keenSliderActiveRef = useRef(null);
   const keenSliderCountRef = useRef(null);
-
   useEffect(() => {
     const initializeSlider = async () => {
       const { default: KeenSlider } = await import("keen-slider");
@@ -343,7 +352,6 @@ const TestimonialSlider = () => {
         keenSliderNext.removeEventListener("click", () => slider.next());
       };
     };
-
     initializeSlider();
   }, []);
 
@@ -380,13 +388,12 @@ const TestimonialSlider = () => {
     },
     // Add more testimonials as needed
   ];
-
   return (
-    <section className="bg-white dark:bg-primaryDark">
+    <section className="bg-gray-100 dark:bg-primaryDark">
       <div
         data-aos="fade-right"
-        className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-        <h2 className="text-start  text-4xl font-bold tracking-tight text-gray-900 dark:text-textDark sm:text-5xl">
+        className="mx-auto max-w-screen-xl px-14 py-12 sm:px-6 lg:px-14 lg:py-16">
+        <h2 className="text-start   font-bold tracking-tight text-gray-900 dark:text-textDark text-3xl md:text-4xl">
           Read trusted reviews from our students.
         </h2>
         <div data-aos="fade-up" className="mt-8">
@@ -427,7 +434,6 @@ const TestimonialSlider = () => {
               </div>
             ))}
           </div>
-
           <div className="mt-6 flex items-center justify-center gap-4">
             <button
               aria-label="Previous slide"
@@ -447,12 +453,10 @@ const TestimonialSlider = () => {
                 />
               </svg>
             </button>
-
             <p className="w-16 text-center text-sm text-gray-700">
               <span ref={keenSliderActiveRef}></span> /{" "}
               <span ref={keenSliderCountRef}></span>
             </p>
-
             <button
               aria-label="Next slide"
               id="keen-slider-next"
@@ -477,7 +481,6 @@ const TestimonialSlider = () => {
     </section>
   );
 };
-
 // Main Component
 function HomePages() {
   useEffect(() => {
@@ -487,10 +490,11 @@ function HomePages() {
     <main className="bg-white dark:bg-primaryDark dark:text-textDark">
       <HeroSection />
       <WhatISSeakSa />
+      <DemoUs />
       <SupportSections />
       <CountSection />
       <TestimonialSlider />
-      <CategoriesSection />
+      <Slide />
       <Chart />
     </main>
   );

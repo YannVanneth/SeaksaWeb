@@ -36,7 +36,6 @@ export default function CartComponent({ id }) {
     setIsBookmarked(!isBookmarked);
     localStorage.setItem("bookmark", JSON.stringify(updatedBookmarks));
   };
-
   return (
     <Link to={`/detailpage/${data.id}`}>
       <div data-aos="fade-up">
@@ -75,7 +74,6 @@ export default function CartComponent({ id }) {
             <p className="mt-2 text-sm text-gray-500 dark:text-textDark line-clamp-3">
               {data.description}
             </p>
-
             <div className="mt-3 flex flex-wrap items-center justify-between text-sm text-gray-500">
               <div className="flex items-center gap-2">
                 <IoBook className="text-primary text-[18px]" />
