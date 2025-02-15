@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CartComponent from "../../components/ui/CartComponent";
 import { Prevers } from "../../components/ui/Prevers";
 import { Tab, Tabs } from "../../components/ui/Tab";
@@ -96,7 +96,7 @@ const TabContents = ({
       </div>
 
       <CourseCarouselSection />
-      <PopularInstructorSection data={data} />
+      {/* <PopularInstructorSection data={data} /> */}
 
       <Prevers
         totalItems={Courses.length}
@@ -253,7 +253,7 @@ const PopularInstructorSection = ({
 export default function CoursesPage() {
   return (
     <section className="w-[80%] mx-auto">
-      <div className="flex flex-col gap-5 my-6">
+      <div className="flex flex-col gap-5 my-6 dark:text-textDark">
         <p className="font-bold text-4xl">Development Courses</p>
         <div>
           <p className="font-bold text-2xl">Courses to get you started</p>

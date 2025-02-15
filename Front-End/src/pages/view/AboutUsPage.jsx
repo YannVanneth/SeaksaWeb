@@ -91,7 +91,8 @@ export default function AboutUsPage() {
         <div className="container w-full lg:w-[50%] m-auto order-2 lg:order-1 text-center lg:text-left">
           <h1
             data-aos="fade-down-right"
-            className="text-primary text-3xl font-bold">
+            className="text-primary text-3xl font-bold"
+          >
             About Us
           </h1>
           <div data-aos="fade-right" className="mt-4">
@@ -115,7 +116,8 @@ export default function AboutUsPage() {
         </div>
         <div
           data-aos="fade-left"
-          className="w-full lg:w-[50%] order-1 lg:order-2 flex justify-center lg:justify-end ">
+          className="w-full lg:w-[50%] order-1 lg:order-2 flex justify-center lg:justify-end "
+        >
           <IconCloud images={images} />
         </div>
       </section>
@@ -129,7 +131,8 @@ export default function AboutUsPage() {
           />
           <div
             aria-hidden="true"
-            className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl">
+            className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
+          >
             <div
               style={{
                 clipPath:
@@ -140,7 +143,8 @@ export default function AboutUsPage() {
           </div>
           <div
             aria-hidden="true"
-            className="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu">
+            className="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
+          >
             <div
               style={{
                 clipPath:
@@ -153,12 +157,14 @@ export default function AboutUsPage() {
             <div className="mx-auto max-w-2xl lg:mx-0">
               <h2
                 data-aos="fade-down-right"
-                className="text-5xl font-semibold tracking-tight text-primary sm:text-7xl">
+                className="text-5xl font-semibold tracking-tight text-primary sm:text-7xl"
+              >
                 Work with us
               </h2>
               <p
                 data-aos="fade-right"
-                className="mt-8 text-pretty text-lg font-medium text-black sm:text-xl/8">
+                className="mt-8 text-pretty text-lg font-medium text-black sm:text-xl/8 dark:text-textDark"
+              >
                 Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
                 lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
                 fugiat.
@@ -167,19 +173,25 @@ export default function AboutUsPage() {
             <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
               <div
                 data-aos="fade-right"
-                className="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-black sm:grid-cols-2 md:flex lg:gap-x-10">
+                className="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-black sm:grid-cols-2 md:flex lg:gap-x-10"
+              >
                 {links.map((link) => (
-                  <a key={link.name} href={link.href}>
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="dark:text-textDark text-black"
+                  >
                     {link.name} <span aria-hidden="true">&rarr;</span>
                   </a>
                 ))}
               </div>
               <dl
                 data-aos="fade-up"
-                className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+                className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4"
+              >
                 {stats.map((stat) => (
                   <div key={stat.name} className="flex flex-col-reverse gap-1">
-                    <dt className=" text-secondary text-lg font-bold">
+                    <dt className=" text-secondary text-lg font-bold dark:text-textDark">
                       {stat.name}
                     </dt>
                     <dd className="text-4xl  tracking-tight text-primary font-bold">
@@ -199,9 +211,9 @@ export default function AboutUsPage() {
           <div className="text-center mb-16">
             <h2 className="text-2xl font-bold">
               <span className="text-primary">Our </span>
-              <span>Features</span>
+              <span className="dark:text-textDark">Features</span>
             </h2>
-            <p className="mt-4 text-muted-foreground">
+            <p className="mt-4 text-muted-foreground dark:text-textDark">
               This very extraordinary feature, can make learning activities more
               efficient
             </p>
@@ -230,7 +242,7 @@ export default function AboutUsPage() {
             </div>
 
             <div className="space-y-8">
-              <h3 className="text-2xl font-semibold">
+              <h3 className="text-2xl font-semibold dark:text-textDark">
                 A <span className="text-primary">user interface</span> designed
                 <br />
                 for the classroom
@@ -247,7 +259,10 @@ export default function AboutUsPage() {
                     text: "Teachers can easily see all students and class data at one time.",
                   },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-4">
+                  <div
+                    key={i}
+                    className="flex items-start gap-4 dark:text-textDark"
+                  >
                     <div className="size-6 rounded bg-muted flex items-center justify-center">
                       <div className="size-2 rounded-full bg-primary" />
                     </div>
@@ -263,12 +278,12 @@ export default function AboutUsPage() {
         <section className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold">
+              <h2 className="text-3xl font-bold dark:text-textDark">
                 <span className="text-primary">Tools</span> For Teachers
                 <br />
                 And Learners
               </h2>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground dark:text-textDark">
                 Class has a dynamic set of teaching tools built to be deployed
                 and used during class. Teachers can handout assignments in
                 real-time for students to complete and submit.
@@ -290,7 +305,7 @@ export default function AboutUsPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative">
               <div className="space-y-4">
-                <h4 className="text-lg font-semibold">
+                <h4 className="text-lg font-semibold dark:text-textDark">
                   True or false? This play takes place in Italy
                 </h4>
                 <img
@@ -301,12 +316,12 @@ export default function AboutUsPage() {
               </div>
             </div>
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold">
+              <h2 className="text-3xl font-bold dark:text-textDark">
                 Assessments,
                 <br />
                 <span className="text-primary">Quizzes</span>, Tests
               </h2>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground dark:text-textDark">
                 Easily launch live assignments, quizzes, and tests. Student
                 results are automatically entered in the online gradebook.
               </p>
@@ -318,12 +333,12 @@ export default function AboutUsPage() {
         <section className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold">
+              <h2 className="text-3xl font-bold dark:text-textDark">
                 <span className="text-primary">Class Management</span>
                 <br />
                 Tools for Educators
               </h2>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground dark:text-textDark">
                 Class provides tools to help run and manage the class such as
                 Class Roster, Attendance, and more. With the Gradebook, teachers
                 can review and grade tests and quizzes in real-time.
@@ -358,7 +373,7 @@ export default function AboutUsPage() {
                         img: "../src/assets/member/neth.png",
                       },
                     ].map((student, i) => (
-                      <div key={i} className="flex items-center gap-4">
+                      <div key={i} className="flex items-center gap-4 ">
                         {student.img && (
                           <img
                             src={student.img}
@@ -405,12 +420,12 @@ export default function AboutUsPage() {
               </div>
             </div>
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold">
+              <h2 className="text-3xl font-bold dark:text-textDark">
                 One-on-One
                 <br />
                 <span className="text-primary">Discussions</span>
               </h2>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground dark:text-textDark">
                 Teachers and teacher assistants can talk with students privately
                 without leaving the Zoom environment.
               </p>
